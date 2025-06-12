@@ -1,0 +1,83 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\About;
+use Illuminate\Http\Request;
+use Inertia\Inertia;
+
+class AboutController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        $abouts= About::all();
+        return Inertia::render('welcome', [
+            'abouts'=>$abouts,
+
+        ]);
+
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        $about=new About();
+        $about->titre= $request->titre;
+        $about->texte= $request->texte;
+        $about->image= $request->image;
+        $about->save();
+        
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show($id)
+    {
+        $about= About::find($id);
+        return Inertia::render('details', ['about'=>$about]);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit($id)
+    {
+        $about= About::find($id);
+        return Inertia::render('editAbout', ['about'=>$about]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update($id, Request  $request)
+    {
+        $about= About::find($id);
+        $about->titre= $request->titre;
+        $about->texte= $request->texte;
+        $about->image= $request->image;
+        $about->save();
+        
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(About $about)
+    {
+        //
+    }
+}
