@@ -82,7 +82,7 @@ class ArticleSeeder extends Seeder
 
                 Photos suggérées : poste de travail en terrasse tropicale – facture de déjeuner à 3 € – tableau comparatif coût de la vie Paris/Bali – portrait du développeur au coworking
 
-                Julien Marceau.
+                Raoul Dupont.
 
                 Journaliste indépendant.
                 @julienmarceau
@@ -133,10 +133,10 @@ class ArticleSeeder extends Seeder
 
                 La Belgique reste aujourd’hui une destination privilégiée pour les développeurs web à l’échelle européenne, grâce à un bon compromis entre salaire, qualité de vie et avantages sociaux. Mais la compétition monte d’un cran. Si elle souhaite conserver ses talents et en attirer de nouveaux, elle devra poursuivre ses efforts sur l’accueil, la fiscalité du travail numérique, et la flexibilité des modèles d’emploi.
 
-                Julien Marceau.
+                Emmanuelle Guart.
 
-                Journaliste indépendant
-                @emmanuelle Guart
+                Journaliste indépendant.
+                @emmanuelle Guart.
                 ©2025 – Tous droits réservés",
 
                 'date' => "mars 2025",

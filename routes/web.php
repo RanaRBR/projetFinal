@@ -2,14 +2,13 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\TemoinController;
 use App\Models\About;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/', [AboutController::class, 'index'])->name('home');
 // Route::get('/', [ArticleController::class, 'index'])->name('home');
-
-
 
 Route::get('/article/{id}', [ArticleController::class, 'show']);
 
@@ -27,6 +26,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/create/article', [ArticleController::class, 'create']);
     Route::get('/edit/article/{id}', [ArticleController::class, 'edit']);
     Route::put('/update/article/{id}', [ArticleController::class, 'update']);
+
+    Route::get('/create/temoin', [TemoinController::class, 'create']);
+    Route::get('/edit/temoin/{id}', [TemoinController::class, 'edit']);
+    Route::put('/update/temoin/{id}', [TemoinController::class, 'update']);
 
 
 

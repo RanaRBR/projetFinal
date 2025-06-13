@@ -1,11 +1,12 @@
 import NavBarre from "@/components/navBarre/NavBarre"
 import SectionAbout from "@/components/sectionAbout/SectionAbout"
 import SectionArticle from "@/components/sectionArticle/SectionArticle";
+import SectionTemoin from "@/components/sectionTemoin/SectionTemoin";
 import { log } from "console";
 
 
 
-function Welcome({abouts, articles}){
+function Welcome({abouts, articles, temoins}){
 
     console.log(articles);
     
@@ -22,6 +23,9 @@ function Welcome({abouts, articles}){
             
         <SectionAbout abouts={abouts}/>
         <SectionArticle articles={articles}/>
+        <SectionTemoin temoins={temoins}/>
+
+
 
 
         </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\About;
 use App\Models\Article;
+use App\Models\Temoin;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -16,9 +17,11 @@ class AboutController extends Controller
     {
         $abouts= About::all();
         $articles=Article::all();
+        $temoins=Temoin::all();
         return Inertia::render('welcome', [
             'abouts'=>$abouts,
             'articles'=>$articles,
+            'temoins'=>$temoins,
 
         ]);
 
@@ -54,7 +57,7 @@ class AboutController extends Controller
         return Inertia::render('details', ['about'=>$about]);
 
 
-        $article = Article::findOrFail($id);
+        $article = Article::find($id);
 
         return Inertia::render('ArticleDetails', [
         'article' => $article
