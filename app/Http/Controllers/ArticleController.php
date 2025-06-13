@@ -15,11 +15,14 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles=Article::all();
-        return Inertia::render('welcome',[
-            'articles'=>$articles
+        $articles = Article::all();
+        return Inertia::render('welcome', [
+            'articles' => $articles
         ]);
+
     }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -34,31 +37,31 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        $article=new Article();
-        $article->titre=$request->titre;
-        $article->paragraphe=$request->paragraphe;
-        $article->date=$request->date;
-        $article->photo=$request->photo;
-        $article->auteur=$request->auteur;
-        $article->article_id=$request->article_id;
+        $article = new Article();
+        $article->titre = $request->titre;
+        $article->paragraphe = $request->paragraphe;
+        $article->date = $request->date;
+        $article->photo = $request->photo;
+        $article->auteur = $request->auteur;
+        $article->article_id = $request->article_id;
         $article->save();
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Article $article)
-    {
-        //
-    }
+   public function show($id)
+{
+    $article = Article::findOrFail($id);
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+    return Inertia::render('articleDetails', ['article' => $article]);
+}
+
+
     public function edit($id)
     {
-        $article= Article::find($id);
-        return Inertia::render('editArticle',['article'=>$article]);
+        $article = Article::find($id);
+        return Inertia::render('editArticle', ['article' => $article]);
     }
 
     /**
@@ -66,13 +69,13 @@ class ArticleController extends Controller
      */
     public function update($id, Request $request)
     {
-        $article=Article::find($id);
-        $article->titre=$request->titre;
-        $article->paragraphe=$request->paragraphe;
-        $article->date=$request->date;
-        $article->photo=$request->photo;
-        $article->auteur=$request->auteur;
-        $article->article_id=$request->article_id;
+        $article = Article::find($id);
+        $article->titre = $request->titre;
+        $article->paragraphe = $request->paragraphe;
+        $article->date = $request->date;
+        $article->photo = $request->photo;
+        $article->auteur = $request->auteur;
+        $article->article_id = $request->article_id;
         $article->save();
     }
 
@@ -81,7 +84,7 @@ class ArticleController extends Controller
      */
     public function destroy($id)
     {
-        $article=Article::find($id);
+        $article = Article::find($id);
         $article->delete();
     }
 }

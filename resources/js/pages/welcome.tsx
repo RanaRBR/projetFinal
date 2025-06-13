@@ -1,5 +1,5 @@
 import NavBarre from "@/components/navBarre/NavBarre"
-import SectionAbout from "@/components/sectionAbout/SectionAbout";
+import SectionAbout from "@/components/sectionAbout/SectionAbout"
 import SectionArticle from "@/components/sectionArticle/SectionArticle";
 import { log } from "console";
 
@@ -22,6 +22,7 @@ function Welcome({abouts, articles}){
             
         <SectionAbout abouts={abouts}/>
         <SectionArticle articles={articles}/>
+
 
         </div>
 

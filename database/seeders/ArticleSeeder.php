@@ -41,13 +41,13 @@ class ArticleSeeder extends Seeder
 
                 Maxime Leclerc : d’abord, bien préparer son départ : vérifier les visas, la couverture santé, les décalages horaires. Ensuite, tester le pays avant de s’y installer. Et surtout, ne pas idéaliser : tout n’est pas parfait, il y a des défis (barrière de la langue, démarches administratives…). Mais si tu es autonome, adaptable et que tu as une bonne connexion internet, tu peux travailler de presque n’importe où.
 
-                Photos : Maxime devant son bureau avec vue sur les rizières – en session de surf matinale – au café coworking de Canggu
+                Photos : Maxime devant son bureau avec vue sur les rizières – en session de surf matinale – au café coworking de Canggu.
 
-                Julien Marceau
+                Julien Marceau.
 
-                Journaliste indépendant
+                Journaliste indépendant.
                 @julienmarceau
-                ©2025 – Tous droits réservés
+                ©2025 – Tous droits réservés.
 
 ',
                 'date' => "novembre 2024",
@@ -56,9 +56,7 @@ class ArticleSeeder extends Seeder
             ],
             [
                 'titre' => 'Expatriation numérique : quand les développeurs web doublent leur pouvoir d’achat à l’étranger',
-                'paragraphe' => "Par Raoul Dupont, reporter.
-
-                Depuis quelques années, un phénomène discret mais croissant transforme la vie de nombreux professionnels du numérique : l’expatriation économique. Parmi eux, les développeurs web sont nombreux à franchir le pas. En conservant leurs clients européens tout en vivant dans des pays à faible coût, certains parviennent à augmenter significativement leur pouvoir d’achat, à améliorer leur qualité de vie, et à bâtir une nouvelle forme de stabilité financière.
+                'paragraphe' => "Depuis quelques années, un phénomène discret mais croissant transforme la vie de nombreux professionnels du numérique : l’expatriation économique. Parmi eux, les développeurs web sont nombreux à franchir le pas. En conservant leurs clients européens tout en vivant dans des pays à faible coût, certains parviennent à augmenter significativement leur pouvoir d’achat, à améliorer leur qualité de vie, et à bâtir une nouvelle forme de stabilité financière.
 
                 C’est le cas de Maxime Leclerc, développeur full-stack originaire de Lyon, qui a choisi de s’installer à Bali en 2022. Mais derrière l’anecdote individuelle se cache une réalité économique de plus en plus structurée.
 
@@ -84,21 +82,21 @@ class ArticleSeeder extends Seeder
 
                 Photos suggérées : poste de travail en terrasse tropicale – facture de déjeuner à 3 € – tableau comparatif coût de la vie Paris/Bali – portrait du développeur au coworking
 
-                Julien Marceau
+                Julien Marceau.
 
-                Journaliste indépendant
+                Journaliste indépendant.
                 @julienmarceau
                 ©2025 – Tous droits réservés",
 
                 'date' => "janvier 2025",
-                'photo' => "/images/article2.jpg",
+                'photo' => "/images/article3.jpg",
                 'auteur' => "Raoul Dupont",
             ],
 
             [
                 'titre'=>'Web dévelopers en Belgique : salaires, migrations et réalités du marché en 2025.',
 
-                'paragraphe'=> "Par Emmanuelle Guart, journaliste indépendante.
+                'paragraphe'=> "
 
                 Bruxelles – Le métier de web developer continue d’attirer, évoluer et… migrer. Dans un marché du numérique en constante mutation, la Belgique se positionne comme un point d’équilibre en Europe, entre attractivité salariale et pression migratoire. En 2025, quel est le portrait réel du développeur web en Belgique ? Et comment se situe-t-il face à ses voisins européens ?
 
@@ -142,7 +140,7 @@ class ArticleSeeder extends Seeder
                 ©2025 – Tous droits réservés",
 
                 'date' => "mars 2025",
-                'photo' => "/images/article3.jpg",
+                'photo' => "/images/article2.jpg",
                 'auteur' => "Emmanuelle Guart",
             ]
         ]);
