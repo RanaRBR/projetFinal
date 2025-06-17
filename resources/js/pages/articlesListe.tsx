@@ -1,45 +1,49 @@
 import NavBarre from '@/components/navBarre/NavBarre';
 import { Link } from '@inertiajs/react';
 import { useState } from 'react';
+import { ImSearch } from "react-icons/im";
 
 export default function ArticlesListe({ articles }) {
     const [filtre, setFiltre] = useState('tous');
     const [search, setSearch] = useState('');
 
- const filtrerArticles = () => {
-    return articles.filter((article) => {
-        const Loc = article.local === true || article.local === 'true' || article.local === 1 || article.local === '1';
+    const filtrerArticles = () => {
+        return articles.filter((article) => {
+            const Loc = article.local === true || article.local === 'true' || article.local === 1 || article.local === '1';
 
-        const correspondFiltre =
-            filtre === 'tous' ||
-            (filtre === 'local' && Loc) ||
-            (filtre === 'etranger' && !Loc);
+            const correspondFiltre =
+                filtre === 'tous' ||
+                (filtre === 'local' && Loc) ||
+                (filtre === 'etranger' && !Loc);
 
-        const correspondRecherche = article.titre.toLowerCase().includes(search.toLowerCase());
+            const correspondRecherche = article.titre.toLowerCase().includes(search.toLowerCase());
 
-        return correspondFiltre && correspondRecherche;
-    });
-};
-
+            return correspondFiltre && correspondRecherche;
+        });
+    };
 
     return (
         <section className="mt-40 min-h-screen bg-gray-100 px-4 py-20 font-serif">
             <NavBarre />
             <div className="mx-auto max-w-7xl">
-                <h2 className="mb-10 text-center text-5xl font-extrabold text-cyan-700 uppercase tracking-wide leading-tight"
+                <h2
+                    className="mb-10 text-center text-5xl font-extrabold text-cyan-700 uppercase tracking-wide leading-tight"
                     style={{ fontFamily: "'Merriweather', sans-serif", fontStyle: 'normal', fontWeight: 600 }}
                 >
-                    Le carnet du codeur
+                    Zoom sur l’actualité
                 </h2>
 
                 <div className="mb-12 flex flex-col md:flex-row items-center justify-between gap-6 text-black mt-20">
-                    <input
-                        type="text"
-                        placeholder="Rechercher un article..."
-                        value={search}
-                        onChange={(e) => setSearch(e.target.value)}
-                        className="w-full md:w-1/2 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-cyan-600"
-                    />
+                    <div className="relative w-full md:w-1/2">
+                        <input
+                            type="text"
+                            placeholder="Rechercher un article..."
+                            value={search}
+                            onChange={(e) => setSearch(e.target.value)}
+                            className="w-full px-4 py-2 pr-10 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-1 focus:ring-cyan-600"
+                        />
+                        <ImSearch className="absolute right-3 top-1/2 -translate-y-1/2 text-cyan-600 pointer-events-none" />
+                    </div>
 
                     <div className="flex gap-4 mt-10">
                         <button
@@ -85,7 +89,8 @@ export default function ArticlesListe({ articles }) {
 
                             <div className="flex flex-col justify-between p-6 grow">
                                 <div className="mb-4">
-                                    <h3 className="mb-2 text-2xl font-bold text-gray-800 leading-snug group-hover:text-cyan-700"
+                                    <h3
+                                        className="mb-2 text-2xl font-bold text-gray-800 leading-snug group-hover:text-cyan-700"
                                         style={{ fontFamily: "'Merriweather', serif" }}
                                     >
                                         {article.titre}

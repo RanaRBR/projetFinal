@@ -1,6 +1,7 @@
 
 import NavBarre from '@/components/navBarre/NavBarre';
 
+
 export default function ArticleDetails({ article }) {
     return (
         <>
