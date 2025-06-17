@@ -22,12 +22,38 @@ class ArticleController extends Controller
     }
 
     public function all()
-    {
-        $articles = Article::all();
-        return Inertia::render('articleListe', [
-            'articles' => $articles
-        ]);
-    }
+{
+    $articles = Article::all();
+    return Inertia::render('articlesListe', [
+        'articles' => $articles
+    ]);
+}
+
+// public function all(Request $request)
+// {
+//     $search = $request->input('search');          // recherche texte
+//     $localisation = $request->input('localisation');  // filtre localisation
+
+//     $query = Article::query();
+
+//     if ($search) {
+//         $query->where('titre', 'like', '%' . $search . '%');
+//     }
+
+//     if ($localisation) {
+//         $query->where('localisation', $localisation);
+//     }
+
+//     $articles = $query->get();
+
+//     return Inertia::render('articlesListe', [
+//         'articles' => $articles,
+//         'filters' => [
+//             'search' => $search,
+//             'localisation' => $localisation,
+//         ],
+//     ]);
+// }
 
 
 
@@ -51,6 +77,7 @@ class ArticleController extends Controller
         $article->date = $request->date;
         $article->photo = $request->photo;
         $article->auteur = $request->auteur;
+        $article->localisation=$request->localisation;
         $article->article_id = $request->article_id;
         $article->save();
     }
@@ -83,6 +110,7 @@ class ArticleController extends Controller
         $article->date = $request->date;
         $article->photo = $request->photo;
         $article->auteur = $request->auteur;
+        $article->localisation=$request->localisation;
         $article->article_id = $request->article_id;
         $article->save();
     }

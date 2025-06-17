@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\SavoirController;
 use App\Http\Controllers\TemoinController;
 use App\Models\About;
@@ -37,6 +38,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/create/savoir', [SavoirController::class, 'create']);
     Route::get('/edit/savoir/{id}', [SavoirController::class, 'edit']);
     Route::put('/update/savoir/{id}', [SavoirController::class, 'update']);
+
+    
+    //mail
+
+    Route::post('/send-email', [ContactController::class, 'sendContactForm']);
 
     
     Route::get('dashboard', function () {

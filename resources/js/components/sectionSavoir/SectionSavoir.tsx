@@ -18,20 +18,25 @@ function SectionSavoir({ savoirs }) {
       <div className="relative w-[650px] md:w-[600px]">
         <img src="/images/pancarte.png" alt="pancarte" className="w-full" />
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center px-4">
-          <h2
+          <h1
             className="text-5xl font-bold uppercase text-black leading-tight mb-10"
             style={{ fontFamily: "'Henny Penny', system-ui" }}
           >
             Le <span className="text-cyan-600">codiez</span><br />
             -vous <span className="text-cyan-600 ms-8">?</span>
-          </h2>
+          </h1>
         </div>
       </div>
 
       <section className="max-w-xl text-center md:text-left mt-20 me-15">
-        <h3 className="mb-6 text-4xl md:text-5xl font-medium text-cyan-600 uppercase">
+        <h2 className="mb-6 text-4xl md:text-5xl font-medium text-cyan-600 uppercase"
+         style={{
+                    fontFamily: "'Merriweather', sans-serif",
+                    fontStyle: 'normal',
+                    fontWeight: 600,
+                  }}>
           {Savoir.titre}
-        </h3>
+        </h2>
         <p
           className="text-xl text-black"
           style={{

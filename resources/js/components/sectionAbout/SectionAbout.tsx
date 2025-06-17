@@ -23,7 +23,7 @@ function SectionAbout({ abouts }) {
                 <h2
                   className="mb-6 text-5xl font-medium text-cyan-600 uppercase"
                   style={{
-                    fontFamily: "'Noto Sans JP', sans-serif",
+                    fontFamily: "'Merriweather', sans-serif",
                     fontStyle: 'normal',
                     fontWeight: 600,
                   }}

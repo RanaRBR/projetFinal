@@ -1,32 +1,32 @@
-import NavBarre from "@/components/navBarre/NavBarre";
+
+import NavBarre from '@/components/navBarre/NavBarre';
 
 export default function ArticleDetails({ article }) {
-  return (
-    <>
-    <NavBarre />
-    <div id="#media" className="min-h-screen bg-gradient-to-tr from-cyan-100 to-yellow-100 flex justify-center items-center py-20 px-6 mt-45">
-      <div className="max-w-4xl w-full bg-white rounded-xl shadow-lg p-8 transform transition duration-500">
-        <h1 className="text-3xl font-bold text-cyan-600 mb-4">{article.titre}</h1>
+    return (
+        <>
+            <NavBarre />
+            <div id="media" className="min-h-screen bg-white px-6 py-12 flex justify-center mt-40">
+                <article className="max-w-3xl w-full border-t-2 border-cyan-700 pt-8" style={{ fontFamily: "'Merriweather', serif" }}>
+                    <h1 className="text-4xl font-serif font-bold text-gray-900 leading-tight mb-6">
+                        {article.titre}
+                    </h1>
 
-        <img
-          className="w-full h-96 object-cover rounded-xl mb-6"
-          src={article.photo}
-          alt={article.titre}
-        />
+                    <div className="text-gray-800 text-lg leading-relaxed" style={{ fontWeight: 400, lineHeight: 1.7 }}>
+                        <img
+                            src={article.photo}
+                            alt={article.titre}
+                            className="float-left w-105 mr-6 mb-4 rounded-sm shadow-md object-cover"
+                            style={{ maxHeight: '200px' }}
+                        />
+                        {article.paragraphe}
+                    </div>
 
-        <div className="text-black text-base leading-relaxed whitespace-pre-line">
-          {article.paragraphe}
-        </div>
-
-        <div className="mt-6 flex justify-between text-sm text-gray-700">
-          <span><strong>Date :</strong> {article.date}</span>
-          <span><strong>Auteur :</strong> {article.auteur}</span>
-        </div>
-      </div>
-    </div>
-    </>
-  );
+                    <section className="mt-10 flex justify-between text-sm text-gray-600 italic font-serif">
+                        <span><strong>Date :</strong> {article.date}</span>
+                        <span><strong>Auteur :</strong> {article.auteur}</span>
+                    </section>
+                </article>
+            </div>
+        </>
+    );
 }
-
-
-  

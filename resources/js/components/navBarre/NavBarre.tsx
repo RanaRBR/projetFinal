@@ -11,40 +11,40 @@ export default function NavBarre() {
             </div>
 
             <div className="absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 space-x-8 transition-transform duration-300 ease-in-out">
-                <a
+                <Link
                     href="/"
                     className="text-lg font-medium text-white transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:text-cyan-600"
                 >
                     Accueil
-                </a>
-                <a
+                </Link>
+                <Link
                     href="#about"
                     className="text-lg font-medium text-white transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:text-cyan-600"
                 >
                     A propos
-                </a>
-                <a
-                    href="#media"
+                </Link>
+                <Link
+                    href="/#media"
                     className="text-lg font-medium text-white transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:text-cyan-600"
                 >
                     Média
-                </a>
-                <a
-                    href="#temoignages"
+                </Link>
+                <Link
+                    href="/#temoignages"
                     className="text-lg font-medium text-white transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:text-cyan-600"
                 >
                     Témoignages
-                </a>
+                </Link>
             </div>
 
             <div className="mr-15 flex items-center p-10">
-                <a
-                    href="#contact"
+                <Link
+                    href="/#contact"
                     className="flex text-lg font-medium text-white transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:text-cyan-600"
                 >
                     <FaRegEnvelope className="mt-1 mr-2" size={20} />
                     Contact
-                </a>
+                </Link>
             </div>
         </nav>
     );

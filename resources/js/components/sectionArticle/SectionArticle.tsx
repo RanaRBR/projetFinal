@@ -4,10 +4,10 @@ import { TfiLayoutLineSolid } from 'react-icons/tfi'
 
 export default function Articles({ articles }) {
     const [current, setCurrent] = useState(0)
-    const total = articles.length
+    const tout = articles.length
 
     const next = () => {
-        setCurrent((prev) => (prev + 1) % total)
+        setCurrent((prev) => (prev + 1) % tout)
     }
 
     useEffect(() => {
@@ -23,7 +23,7 @@ export default function Articles({ articles }) {
                 <div className="mb-12 text-center">
                     <h2
                         className="mb-4 text-5xl font-medium text-cyan-600 uppercase"
-                        style={{ fontFamily: "'Noto Sans JP', sans-serif", fontWeight: 600 }}
+                        style={{ fontFamily: "'Merriweather', sans-serif" , fontStyle: 'normal', fontWeight: 600 }}
                     >
                         Vu dans les médias
                     </h2>
@@ -34,7 +34,9 @@ export default function Articles({ articles }) {
 
                 <div className="relative bg-white/80 backdrop-blur-md rounded-2xl shadow-lg p-6 transition-all duration-300">
                     <div className="mb-4">
-                        <h3 className="text-2xl font-semibold text-gray-900">
+                        <h3 className="text-2xl font-semibold text-gray-900"
+                                                style={{ fontFamily: "'Merriweather', sans-serif" , fontStyle: 'normal', fontWeight: 600 }}
+>
                             {articles[current].titre}
                         </h3>
                     </div>

@@ -10,7 +10,7 @@ export default function SectionTemoin({ temoins }) {
                 <div className="mx-auto mb-20 max-w-4xl text-center">
                     <h2
                         className="mb-6 text-5xl font-medium text-cyan-600 uppercase"
-                        style={{ fontFamily: "'Raleway', sans-serif" , fontStyle: 'normal', fontWeight: 600 }}
+                        style={{ fontFamily: "'Merriweather', sans-serif" , fontStyle: 'normal', fontWeight: 600 }}
                     >
                         Ils ont tenté l’aventure
                     </h2>
