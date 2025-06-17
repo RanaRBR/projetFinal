@@ -21,6 +21,15 @@ class ArticleController extends Controller
         ]);
     }
 
+    public function all()
+    {
+        $articles = Article::all();
+        return Inertia::render('articleListe', [
+            'articles' => $articles
+        ]);
+    }
+
+
 
 
     /**

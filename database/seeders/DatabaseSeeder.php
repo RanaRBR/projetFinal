@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             AboutSeeder::class,
             ArticleSeeder::class,
             TemoinSeeder::class,
+            SavoirSeeder::class,
          ]);
 
     }

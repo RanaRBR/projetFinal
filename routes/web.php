@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\SavoirController;
 use App\Http\Controllers\TemoinController;
 use App\Models\About;
 use Illuminate\Support\Facades\Route;
@@ -11,6 +12,8 @@ Route::get('/', [AboutController::class, 'index'])->name('home');
 // Route::get('/', [ArticleController::class, 'index'])->name('home');
 
 Route::get('/article/{id}', [ArticleController::class, 'show']);
+Route::get('/articles', [ArticleController::class, 'all']);
+
 
 Route::middleware(['auth', 'verified'])->group(function () {
     // Route::get('dashboard', function () {
@@ -31,7 +34,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/edit/temoin/{id}', [TemoinController::class, 'edit']);
     Route::put('/update/temoin/{id}', [TemoinController::class, 'update']);
 
-
+    Route::get('/create/savoir', [SavoirController::class, 'create']);
+    Route::get('/edit/savoir/{id}', [SavoirController::class, 'edit']);
+    Route::put('/update/savoir/{id}', [SavoirController::class, 'update']);
 
     
     Route::get('dashboard', function () {

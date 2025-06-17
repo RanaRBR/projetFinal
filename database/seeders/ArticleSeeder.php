@@ -15,7 +15,7 @@ class ArticleSeeder extends Seeder
     {
         DB::table('articles')->insert([
             [
-                'titre' => ' Exil numérique : rencontre avec Maxime, développeur web installé à Bali',
+                'titre' => ' Exil numérique : rencontre avec Maxime, développeur web installé à Bali.',
                 'paragraphe' => 'Maxime Leclerc, 32 ans, est développeur web full-stack. Originaire de Lyon, il a fait le choix en 2022 de tout quitter pour poser ses valises à Bali, en Indonésie. Une décision audacieuse, motivée autant par un besoin d’évasion que par la volonté de concilier passion du code et qualité de vie. Depuis son bungalow niché entre rizières et océan, il construit des applications, gère des projets pour des clients européens, et partage sa vision du travail « libre », loin des open-spaces gris et des horaires rigides.
 
                 Dans cette interview, il nous livre un regard lucide sur son parcours, ses motivations, et la réalité quotidienne d’un développeur expatrié dans un décor de carte postale. Entre télétravail, choc culturel et équilibre personnel, Maxime nous raconte comment il a transformé son métier en vecteur de liberté.
@@ -50,12 +50,12 @@ class ArticleSeeder extends Seeder
                 ©2025 – Tous droits réservés.
 
 ',
-                'date' => "novembre 2024",
+                'date' => "Novembre 2024",
                 'photo' => "/images/article1.jpg",
                 'auteur' => "Julien Marceau",
             ],
             [
-                'titre' => 'Expatriation numérique : quand les développeurs web doublent leur pouvoir d’achat à l’étranger',
+                'titre' => 'Expatriation numérique : quand les développeurs web doublent leur pouvoir d’achat à l’étranger!',
                 'paragraphe' => "Depuis quelques années, un phénomène discret mais croissant transforme la vie de nombreux professionnels du numérique : l’expatriation économique. Parmi eux, les développeurs web sont nombreux à franchir le pas. En conservant leurs clients européens tout en vivant dans des pays à faible coût, certains parviennent à augmenter significativement leur pouvoir d’achat, à améliorer leur qualité de vie, et à bâtir une nouvelle forme de stabilité financière.
 
                 C’est le cas de Maxime Leclerc, développeur full-stack originaire de Lyon, qui a choisi de s’installer à Bali en 2022. Mais derrière l’anecdote individuelle se cache une réalité économique de plus en plus structurée.
@@ -88,15 +88,15 @@ class ArticleSeeder extends Seeder
                 @julienmarceau
                 ©2025 – Tous droits réservés",
 
-                'date' => "janvier 2025",
+                'date' => "Janvier 2025",
                 'photo' => "/images/article3.jpg",
                 'auteur' => "Raoul Dupont",
             ],
 
             [
-                'titre'=>'Web dévelopers en Belgique : salaires, migrations et réalités du marché en 2025.',
+                'titre' => 'Web dévelopers en Belgique : salaires, migrations et réalités du marché en 2025.',
 
-                'paragraphe'=> "
+                'paragraphe' => "
 
                 Bruxelles – Le métier de web developer continue d’attirer, évoluer et… migrer. Dans un marché du numérique en constante mutation, la Belgique se positionne comme un point d’équilibre en Europe, entre attractivité salariale et pression migratoire. En 2025, quel est le portrait réel du développeur web en Belgique ? Et comment se situe-t-il face à ses voisins européens ?
 
@@ -139,10 +139,108 @@ class ArticleSeeder extends Seeder
                 @emmanuelle Guart.
                 ©2025 – Tous droits réservés",
 
-                'date' => "mars 2025",
+                'date' => "Mars 2025",
                 'photo' => "/images/article2.jpg",
                 'auteur' => "Emmanuelle Guart",
-            ]
+            ],
+
+            [
+                'titre' => "MolenGeek : la Silicon Valley de Molenbeek prend son envol...",
+                'paragraphe' => "
+
+                Bruxelles – implanté à Molenbeek depuis 2015, MolenGeek s'est hissé en dix ans au cœur d’un véritable mouvement d’innovation sociale et technologique. ce hub forme aujourd’hui des profils tech issus de milieux défavorisés, sans exigence de diplôme, et favorise l’inclusion numérique.
+
+                Un modèle francophone d’insertion.
+
+                MolenGeek propose des bootcamps intensifs (web, data, cybersécurité) à des formats gratuits, financés par des partenaires comme Google, Proximus et Samsung. Yassine Kharchaf, formateur, décrit le programme en deux axes : acquisition pratique de compétences via des projets clients, puis renforcement entrepreneurial.
+
+                Des résultats concrets.
+
+                Selon les informations officielles, 93 % des participants trouvent un emploi ou poursuivent leurs études à la fin de la formation. Les locaux affichent une centaine de projets start‑up lancés, et 200 membres actifs aujourd’hui.
+
+                Impact intergénérationnel.
+
+                L’initiative “SeniorGeek” permet à des aînés d’apprendre le numérique chaque semaine, animé par de jeunes coachs — un pont entre générations.
+
+                Un rayonnement européen.
+
+                Soutenu politiquement — même le roi Philippe s’y est rendu en mai 2017 — MolenGeek ouvre des antennes à Charleroi, Amsterdam, Casablanca… prouvant que le modèle s’exporte :contentReference[oaicite:5]{index=5}.
+
+                Molenbeek, ancien quartier stigmatisé, se transforme en un catalyseur d’inclusion, d’innovation et de mixité sociale.
+
+                Francis Leroy,
+                Reporter tech & inclusion,
+                @francis Leroy
+                ©2025",
+                'date' => "Mai 2025",
+                'photo' => "/images/molengeek1.jpg",
+                'auteur' => "Francis Leroy",
+            ],
+            [
+                'titre' => "Inde & Pakistan : les géants du code mondial!",
+                'paragraphe' => "
+
+                Bangalore – en 2025, l’Inde regroupe près de 17 millions de développeurs, ce qui en fait la deuxième plus grande communauté mondiale sur GitHub après les États‑Unis. le Pakistan, de son côté, bénéficie d’un vivier jeune et connecté malgré une infrastructure plus modeste.
+
+                Une masse critique de talents.
+
+                En inde, plus de 15,4 millions de développeurs sont actifs sur GitHub, avec une croissance rapide — le pays pourrait dépasser les États‑Unis d’ici 2027‑2028. les plateformes de freelancing (upwork, fiverr…) sont saturées de profils indiens et pakistanais proposant des services compétitifs.
+
+                L’essor des startups et de l’IA.
+
+                Les géants comme Microsoft annoncent que l’Inde compte plus de 13 millions de développeurs sur GitHub, avec une projection de contribution massive à l’ia : 30 % de la main‑d’œuvre IA mondiale d’ici 2025. les hubs tech — Bangalore, Hyderabad, Lahore, Islamabad — accueillent d’importants investissements, notamment en centres de données.
+
+                Le contraste économique.
+
+                En 2024, l’Inde a dégagé 227 milliards $ d’exportations IT, contre 2,6 milliards $ pour le Pakistan. l’inde produit environ 1,5 million d’ingénieurs par an, selon Statista et estimations sectorielles; le pakistan compte des centaines de milliers de diplômés STEM (ingénieurs, IT) mais reste sur un volume moindre, avec des défis d’inclusion numérique.
+
+                Jeunes, connectés, déterminés.
+
+                Le Pakistan compte 147 millions d’utilisateurs d’internet et plus de 140 millions de connexions mobiles en 2025; de nombreux étudiants suivent des cursus STEM, et les exportations IT ont bondi de 42 % en septembre 2024 seul.
+
+                Un écosystème global.
+
+                Malgré des écarts économiques — l’Inde possède un marché boursier de 3 400 milliards $ contre 100 milliards $ pour le Pakistan — les deux pays coopèrent dans les projets open source, parfois transcendant les tensions politiques.
+
+                en 2025, 40 % des applications utilisées en Europe contiennent du code écrit depuis le sous‑continent.
+
+                Patrick Moreau,
+                Journaliste tech international,
+                @patrcik_moreau
+                ©2025",
+                'date' => "juin 2025",
+                'photo' => "/images/india.avif",
+                'auteur' => "Patrick Moreau",
+            ],
+
+            [
+                'titre' => "De MolenGeek à l'emploi : le parcours inspirant de Julien.",
+                'paragraphe' => "
+                Bruxelles –  Julien, 24 ans, vient de franchir une étape décisive dans sa vie professionnelle. Après avoir suivi une formation en développement web chez MolenGeek, il a rapidement été repéré par une startup tech locale lors d’un jobday organisé par l’incubateur.
+
+                De la formation au stage.
+
+                Séduit par son portfolio et sa motivation, l’entreprise lui a proposé un stage de trois mois. Dès les premières semaines, Julien s’est distingué par sa maîtrise de React, son sens du travail d’équipe et sa capacité à résoudre des problèmes concrets.
+
+                Une embauche rapide.
+
+                Quelques jours avant la fin de son stage, l’entreprise lui a proposé un contrat à durée indéterminée. \"C’est une fierté immense, je n’imaginais pas trouver un emploi aussi vite\", confie-t-il. \"MolenGeek m’a donné les clés, j’ai juste ouvert la porte.\"
+
+                Un exemple pour les jeunes.
+
+                Ce succès illustre l’impact des formations intensives et inclusives comme celles proposées par MolenGeek, qui permettent à des jeunes issus de tous horizons d’accéder aux métiers du numérique.
+
+                Journal MolenGeek,
+                Rédaction locale
+                ©2025
+                ",
+                'date' => "Juin 2025",
+                'photo' => "/images/student.jpg",
+                'auteur' => "Journal MolenGeek",
+            ],
+
+
+
         ]);
     }
 }
