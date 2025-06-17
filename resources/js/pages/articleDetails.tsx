@@ -6,7 +6,7 @@ export default function ArticleDetails({ article }) {
         <>
             <NavBarre />
             <div id="media" className="min-h-screen bg-white px-6 py-12 flex justify-center mt-40">
-                <article className="max-w-3xl w-full border-t-2 border-cyan-700 pt-8" style={{ fontFamily: "'Merriweather', serif" }}>
+                <article className="max-w-3xl w-full border-t-2 border-cyan-600 pt-8" style={{ fontFamily: "'Merriweather', serif" }}>
                     <h1 className="text-4xl font-serif font-bold text-gray-900 leading-tight mb-6">
                         {article.titre}
                     </h1>

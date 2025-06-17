@@ -1,19 +1,76 @@
 import NavBarre from '@/components/navBarre/NavBarre';
 import { Link } from '@inertiajs/react';
+import { useState } from 'react';
 
 export default function ArticlesListe({ articles }) {
+    const [filtre, setFiltre] = useState('tous');
+    const [search, setSearch] = useState('');
+
+ const filtrerArticles = () => {
+    return articles.filter((article) => {
+        const Loc = article.local === true || article.local === 'true' || article.local === 1 || article.local === '1';
+
+        const correspondFiltre =
+            filtre === 'tous' ||
+            (filtre === 'local' && Loc) ||
+            (filtre === 'etranger' && !Loc);
+
+        const correspondRecherche = article.titre.toLowerCase().includes(search.toLowerCase());
+
+        return correspondFiltre && correspondRecherche;
+    });
+};
+
+
     return (
         <section className="mt-40 min-h-screen bg-gray-100 px-4 py-20 font-serif">
             <NavBarre />
             <div className="mx-auto max-w-7xl">
-                <h2 className="mb-16 text-center text-5xl font-extrabold text-cyan-700 uppercase tracking-wide leading-tight"
-                    style={{ fontFamily: "'Merriweather', sans-serif" , fontStyle: 'normal', fontWeight: 600 }}
+                <h2 className="mb-10 text-center text-5xl font-extrabold text-cyan-700 uppercase tracking-wide leading-tight"
+                    style={{ fontFamily: "'Merriweather', sans-serif", fontStyle: 'normal', fontWeight: 600 }}
                 >
-                    côté presse
+                    Le carnet du codeur
                 </h2>
 
-                <div className="grid gap-14 md:grid-cols-2 lg:grid-cols-3">
-                    {articles.map((article) => (
+                <div className="mb-12 flex flex-col md:flex-row items-center justify-between gap-6 text-black mt-20">
+                    <input
+                        type="text"
+                        placeholder="Rechercher un article..."
+                        value={search}
+                        onChange={(e) => setSearch(e.target.value)}
+                        className="w-full md:w-1/2 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-cyan-600"
+                    />
+
+                    <div className="flex gap-4 mt-10">
+                        <button
+                            onClick={() => setFiltre('local')}
+                            className={`px-4 py-2 rounded-full border font-semibold transition ${
+                                filtre === 'local' ? 'bg-cyan-600 text-white' : 'bg-white text-cyan-700 border-cyan-600 cursor-pointer'
+                            }`}
+                        >
+                            près de chez vous
+                        </button>
+                        <button
+                            onClick={() => setFiltre('etranger')}
+                            className={`px-4 py-2 rounded-full border font-semibold transition ${
+                                filtre === 'etranger' ? 'bg-cyan-600 text-white' : 'bg-white text-cyan-700 border-cyan-600 cursor-pointer'
+                            }`}
+                        >
+                            à l’étranger
+                        </button>
+                        <button
+                            onClick={() => setFiltre('tous')}
+                            className={`px-4 py-2 rounded-full border font-semibold transition cursor-pointer ${
+                                filtre === 'tous' ? 'bg-cyan-600 text-white' : 'bg-white text-cyan-700 border-cyan-600 '
+                            }`}
+                        >
+                            tous
+                        </button>
+                    </div>
+                </div>
+
+                <div className="grid gap-14 md:grid-cols-2 lg:grid-cols-3 mt-20">
+                    {filtrerArticles().map((article) => (
                         <article
                             key={article.id}
                             className="group relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-md transition duration-300 hover:shadow-xl"
@@ -27,7 +84,7 @@ export default function ArticlesListe({ articles }) {
                             </div>
 
                             <div className="flex flex-col justify-between p-6 grow">
-                                <header className="mb-4">
+                                <div className="mb-4">
                                     <h3 className="mb-2 text-2xl font-bold text-gray-800 leading-snug group-hover:text-cyan-700"
                                         style={{ fontFamily: "'Merriweather', serif" }}
                                     >
@@ -36,7 +93,7 @@ export default function ArticlesListe({ articles }) {
                                     <p className="text-xs text-gray-500 italic">
                                         publié le {article.date} — par {article.auteur}
                                     </p>
-                                </header>
+                                </div>
 
                                 <p
                                     className="mb-6 text-gray-700 text-sm line-clamp-4 leading-relaxed"

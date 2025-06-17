@@ -77,7 +77,7 @@ class ArticleController extends Controller
         $article->date = $request->date;
         $article->photo = $request->photo;
         $article->auteur = $request->auteur;
-        $article->localisation=$request->localisation;
+        $article->local=$request->local;
         $article->article_id = $request->article_id;
         $article->save();
     }
@@ -110,7 +110,7 @@ class ArticleController extends Controller
         $article->date = $request->date;
         $article->photo = $request->photo;
         $article->auteur = $request->auteur;
-        $article->localisation=$request->localisation;
+        $article->local=$request->local;
         $article->article_id = $request->article_id;
         $article->save();
     }

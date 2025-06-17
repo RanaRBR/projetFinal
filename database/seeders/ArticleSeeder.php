@@ -53,6 +53,7 @@ class ArticleSeeder extends Seeder
                 'date' => "Novembre 2024",
                 'photo' => "/images/article1.jpg",
                 'auteur' => "Julien Marceau",
+                'local' => false,
             ],
             [
                 'titre' => 'Expatriation numérique : quand les développeurs web doublent leur pouvoir d’achat à l’étranger!',
@@ -91,6 +92,7 @@ class ArticleSeeder extends Seeder
                 'date' => "Janvier 2025",
                 'photo' => "/images/article3.jpg",
                 'auteur' => "Raoul Dupont",
+                'local' => false,
             ],
 
             [
@@ -142,6 +144,7 @@ class ArticleSeeder extends Seeder
                 'date' => "Mars 2025",
                 'photo' => "/images/article2.jpg",
                 'auteur' => "Emmanuelle Guart",
+                'local' => true,
             ],
 
             [
@@ -175,6 +178,7 @@ class ArticleSeeder extends Seeder
                 'date' => "Mai 2025",
                 'photo' => "/images/molengeek1.jpg",
                 'auteur' => "Francis Leroy",
+                'local' => true,
             ],
             [
                 'titre' => "Inde & Pakistan : les géants du code mondial!",
@@ -211,6 +215,7 @@ class ArticleSeeder extends Seeder
                 'date' => "juin 2025",
                 'photo' => "/images/india.avif",
                 'auteur' => "Patrick Moreau",
+                'local' => false,
             ],
 
             [
@@ -237,6 +242,7 @@ class ArticleSeeder extends Seeder
                 'date' => "Juin 2025",
                 'photo' => "/images/student.jpg",
                 'auteur' => "Journal MolenGeek",
+                'local' => true,
             ],
 
 
