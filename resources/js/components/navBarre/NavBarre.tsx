@@ -30,7 +30,7 @@ export default function NavBarre() {
                     Média
                 </Link>
                 <Link
-                    href="/#temoignages"
+                    href="/#myTemoignages"
                     className="text-lg font-medium text-white transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:text-cyan-600"
                 >
                     Témoignages

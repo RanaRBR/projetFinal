@@ -24,6 +24,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 
     Route::post('/articles/{article}/commentaires', [CommentaireController::class, 'store']);
+    Route::get('/commentaire/edit/{id}',[CommentaireController::class,'edit']);
+    Route::put('/commentaire/update/{id}',[CommentaireController::class,'update']);
+    Route::delete('/commentaire/delete/{id}',[CommentaireController::class,'destroy']);
 
     
     Route::get('/create/about', [AboutController::class, 'create']);

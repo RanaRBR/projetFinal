@@ -3,10 +3,11 @@ export default function SectionTemoin({ temoins }) {
         <div
             className="relative bg-gray-900 bg-cover bg-center px-6 py-10 sm:py-32 lg:px-8" id="temoignages"
             style={{ backgroundImage: "url('/images/bgpic.jpg')" }}
+            
         >
             <div className="absolute inset-0 bg-black/15"></div>
 
-            <div className="relative z-10">
+            <div className="relative z-10" id="myTemoignages">
                 <div className="mx-auto mb-20 max-w-4xl text-center">
                     <h2
                         className="mb-6 text-5xl font-medium text-cyan-600 uppercase"

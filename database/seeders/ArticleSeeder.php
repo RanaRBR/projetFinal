@@ -21,6 +21,7 @@ class ArticleSeeder extends Seeder
                 Dans cette interview, il nous livre un regard lucide sur son parcours, ses motivations, et la réalité quotidienne d’un développeur expatrié dans un décor de carte postale. Entre télétravail, choc culturel et équilibre personnel, Maxime nous raconte comment il a transformé son métier en vecteur de liberté.
 
                 Interview
+
                 Julien Marceau : pourquoi as-tu décidé de quitter la France pour t’installer à Bali ?
 
                 Maxime Leclerc : j’en avais marre de la routine métro-boulot-dodo. Même en tant que freelance, je sentais que mon environnement freinait ma créativité. J’ai découvert Bali lors d’un voyage et j’ai tout de suite été séduit par l’énergie du lieu, la chaleur humaine, et le mode de vie plus lent. Le coût de la vie étant abordable, je me suis dit : « pourquoi ne pas tenter ? ».
@@ -39,22 +40,13 @@ class ArticleSeeder extends Seeder
 
                 Julien Marceau : quels conseils donnerais-tu à un développeur qui envisage de partir vivre et travailler à l’étranger ?
 
-                Maxime Leclerc : d’abord, bien préparer son départ : vérifier les visas, la couverture santé, les décalages horaires. Ensuite, tester le pays avant de s’y installer. Et surtout, ne pas idéaliser : tout n’est pas parfait, il y a des défis (barrière de la langue, démarches administratives…). Mais si tu es autonome, adaptable et que tu as une bonne connexion internet, tu peux travailler de presque n’importe où.
+                Maxime Leclerc : d’abord, bien préparer son départ : vérifier les visas, la couverture santé, les décalages horaires. Ensuite, tester le pays avant de s’y installer. Et surtout, ne pas idéaliser : tout n’est pas parfait, il y a des défis (barrière de la langue, démarches administratives…). Mais si tu es autonome, adaptable et que tu as une bonne connexion internet, tu peux travailler de presque n’importe où.',
 
-                Photos : Maxime devant son bureau avec vue sur les rizières – en session de surf matinale – au café coworking de Canggu.
-
-                Julien Marceau.
-
-                Journaliste indépendant.
-                @julienmarceau
-                ©2025 – Tous droits réservés.
-
-',
                 'date' => "Novembre 2024",
                 'photo' => "/images/article1.jpg",
                 'auteur' => "Julien Marceau",
                 'local' => false,
-                
+
             ],
             [
                 'titre' => 'Expatriation numérique : quand les développeurs web doublent leur pouvoir d’achat à l’étranger!',
@@ -80,15 +72,7 @@ class ArticleSeeder extends Seeder
                 Vers une nouvelle géographie du travail
                 Ce phénomène, encore marginal il y a 10 ans, est désormais largement documenté. Des plateformes comme Nomad List, Remote OK ou SafetyWing recensent les destinations les plus populaires chez les nomades numériques. Bali, Chiang Mai, Lisbonne, Medellín ou encore Mexico City apparaissent régulièrement en tête.
 
-                Avec la généralisation du télétravail et la montée des freelances dans le secteur tech, l’expatriation numérique n’est plus une utopie. Elle devient une stratégie économique, permettant de travailler moins, vivre mieux, et investir dans l’avenir.
-
-                Photos suggérées : poste de travail en terrasse tropicale – facture de déjeuner à 3 € – tableau comparatif coût de la vie Paris/Bali – portrait du développeur au coworking
-
-                Raoul Dupont.
-
-                Journaliste indépendant.
-                @julienmarceau
-                ©2025 – Tous droits réservés",
+                Avec la généralisation du télétravail et la montée des freelances dans le secteur tech, l’expatriation numérique n’est plus une utopie. Elle devient une stratégie économique, permettant de travailler moins, vivre mieux, et investir dans l’avenir.",
 
                 'date' => "Janvier 2025",
                 'photo' => "/images/article3.jpg",
@@ -134,13 +118,7 @@ class ArticleSeeder extends Seeder
 
                 Un équilibre à préserver.
 
-                La Belgique reste aujourd’hui une destination privilégiée pour les développeurs web à l’échelle européenne, grâce à un bon compromis entre salaire, qualité de vie et avantages sociaux. Mais la compétition monte d’un cran. Si elle souhaite conserver ses talents et en attirer de nouveaux, elle devra poursuivre ses efforts sur l’accueil, la fiscalité du travail numérique, et la flexibilité des modèles d’emploi.
-
-                Emmanuelle Guart.
-
-                Journaliste indépendant.
-                @emmanuelle Guart.
-                ©2025 – Tous droits réservés",
+                La Belgique reste aujourd’hui une destination privilégiée pour les développeurs web à l’échelle européenne, grâce à un bon compromis entre salaire, qualité de vie et avantages sociaux. Mais la compétition monte d’un cran. Si elle souhaite conserver ses talents et en attirer de nouveaux, elle devra poursuivre ses efforts sur l’accueil, la fiscalité du travail numérique, et la flexibilité des modèles d’emploi.",
 
                 'date' => "Mars 2025",
                 'photo' => "/images/article2.jpg",
@@ -172,10 +150,7 @@ class ArticleSeeder extends Seeder
 
                 Molenbeek, ancien quartier stigmatisé, se transforme en un catalyseur d’inclusion, d’innovation et de mixité sociale.
 
-                Francis Leroy,
-                Reporter tech & inclusion,
-                @francis Leroy
-                ©2025",
+              ",
                 'date' => "Mai 2025",
                 'photo' => "/images/molengeek1.jpg",
                 'auteur' => "Francis Leroy",
@@ -209,10 +184,7 @@ class ArticleSeeder extends Seeder
 
                 en 2025, 40 % des applications utilisées en Europe contiennent du code écrit depuis le sous‑continent.
 
-                Patrick Moreau,
-                Journaliste tech international,
-                @patrcik_moreau
-                ©2025",
+             ",
                 'date' => "juin 2025",
                 'photo' => "/images/india.avif",
                 'auteur' => "Patrick Moreau",
@@ -236,9 +208,6 @@ class ArticleSeeder extends Seeder
 
                 Ce succès illustre l’impact des formations intensives et inclusives comme celles proposées par MolenGeek, qui permettent à des jeunes issus de tous horizons d’accéder aux métiers du numérique.
 
-                Journal MolenGeek,
-                Rédaction locale
-                ©2025
                 ",
                 'date' => "Juin 2025",
                 'photo' => "/images/student.jpg",

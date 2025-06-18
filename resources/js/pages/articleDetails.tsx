@@ -3,6 +3,7 @@ import NavBarre from '@/components/navBarre/NavBarre';
 import SectionCommentaire from '@/components/sectionCommentaire/SectionCommentaire';
 
 
+
 export default function ArticleDetails({ article }) {
 
     return (
@@ -36,9 +37,12 @@ export default function ArticleDetails({ article }) {
                         <span><strong>Date :</strong> {article.date}</span>
                         <span><strong>Auteur :</strong> {article.auteur}</span>
                     </section>
+
+                    <SectionCommentaire article={article} />
+
                 </div>
+
             </div>
-            <SectionCommentaire article={article} />
         </>
     );
 }

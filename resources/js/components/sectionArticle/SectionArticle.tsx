@@ -16,7 +16,7 @@ export default function Articles({ articles }) {
     }, [])
 
     return (
-        <section id="media" className="relative min-h-screen bg-gradient-to-tr from-cyan-100 to-yellow-100 px-4 py-20">
+        <section id="media" className="relative min-h-screen bg-gray-50 px-4 py-20">
             <div className="absolute inset-0 bg-black/5 z-0" />
 
             <div className="relative mx-auto max-w-4xl z-10">
@@ -34,9 +34,9 @@ export default function Articles({ articles }) {
 
                 <div className="relative bg-white/80 backdrop-blur-md rounded-2xl shadow-lg p-6 transition-all duration-300">
                     <div className="mb-4">
-                        <h3 className="text-2xl font-semibold text-gray-900"
+                        <h3 className="text-2xl font-semibold text-gray-900 "
                                                 style={{ fontFamily: "'Merriweather', sans-serif" , fontStyle: 'normal', fontWeight: 600 }}
->
+                        >
                             {articles[current].titre}
                         </h3>
                     </div>
