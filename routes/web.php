@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\CommentaireController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\SavoirController;
 use App\Http\Controllers\TemoinController;
@@ -20,6 +21,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // Route::get('dashboard', function () {
     //     return Inertia::render('dashboard');
     // })->name('dashboard');
+
+
+    Route::post('/articles/{article}/commentaires', [CommentaireController::class, 'store']);
 
     
     Route::get('/create/about', [AboutController::class, 'create']);

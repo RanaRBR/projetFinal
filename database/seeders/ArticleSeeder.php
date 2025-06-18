@@ -54,6 +54,7 @@ class ArticleSeeder extends Seeder
                 'photo' => "/images/article1.jpg",
                 'auteur' => "Julien Marceau",
                 'local' => false,
+                
             ],
             [
                 'titre' => 'Expatriation numérique : quand les développeurs web doublent leur pouvoir d’achat à l’étranger!',

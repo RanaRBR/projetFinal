@@ -9,4 +9,14 @@ class Article extends Model
 {
     /** @use HasFactory<\Database\Factories\ArticleFactory> */
     use HasFactory;
+
+    public function tags(){
+        return $this->belongsToMany(Tag::class);
+    }
+
+    public function commentaires()
+{
+    return $this->hasMany(Commentaire::class);
+}
+
 }

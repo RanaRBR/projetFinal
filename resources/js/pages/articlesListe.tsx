@@ -48,34 +48,34 @@ export default function ArticlesListe({ articles }) {
                     <div className="flex gap-4 mt-10">
                         <button
                             onClick={() => setFiltre('local')}
-                            className={`px-4 py-2 rounded-full border font-semibold transition ${
+                            className={`px-6 py-2 rounded-full border font-semibold transition ${
                                 filtre === 'local' ? 'bg-cyan-600 text-white' : 'bg-white text-cyan-700 border-cyan-600 cursor-pointer'
                             }`}
                         >
-                            près de chez vous
+                            Près de chez vous
                         </button>
                         <button
                             onClick={() => setFiltre('etranger')}
-                            className={`px-4 py-2 rounded-full border font-semibold transition ${
+                            className={`px-6 py-2 rounded-full border font-semibold transition ${
                                 filtre === 'etranger' ? 'bg-cyan-600 text-white' : 'bg-white text-cyan-700 border-cyan-600 cursor-pointer'
                             }`}
                         >
-                            à l’étranger
+                            A l’étranger
                         </button>
                         <button
                             onClick={() => setFiltre('tous')}
-                            className={`px-4 py-2 rounded-full border font-semibold transition cursor-pointer ${
+                            className={`px-6 py-2 rounded-full border font-semibold transition cursor-pointer ${
                                 filtre === 'tous' ? 'bg-cyan-600 text-white' : 'bg-white text-cyan-700 border-cyan-600 '
                             }`}
                         >
-                            tous
+                            Tous
                         </button>
                     </div>
                 </div>
 
                 <div className="grid gap-14 md:grid-cols-2 lg:grid-cols-3 mt-20">
                     {filtrerArticles().map((article) => (
-                        <article
+                        <div
                             key={article.id}
                             className="group relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-md transition duration-300 hover:shadow-xl"
                         >
@@ -85,7 +85,9 @@ export default function ArticlesListe({ articles }) {
                                     alt={article.titre}
                                     className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                                 />
+
                             </div>
+
 
                             <div className="flex flex-col justify-between p-6 grow">
                                 <div className="mb-4">
@@ -114,7 +116,7 @@ export default function ArticlesListe({ articles }) {
                                     lire l’article complet →
                                 </Link>
                             </div>
-                        </article>
+                        </div>
                     ))}
                 </div>
             </div>

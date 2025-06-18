@@ -3,7 +3,7 @@ import { FaRegEnvelope } from 'react-icons/fa';
 
 export default function NavBarre() {
     return (
-        <nav className="fixed top-0 right-0 left-0 z-50 flex h-[140px] items-center justify-between bg-black px-8 py-4 shadow-lg">
+        <nav className="fixed top-0 right-0 left-0 z-50 flex h-[120px] items-center justify-between bg-black px-8 py-4 shadow-lg">
             <div className="flex items-center">
                 <Link href="/">
                     <img src="/images/logo.png" alt="Logo" className="h-30 w-30" />
