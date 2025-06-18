@@ -1,110 +1,189 @@
-import { Head, useForm } from '@inertiajs/react';
-import { LoaderCircle } from 'lucide-react';
-import { FormEventHandler } from 'react';
+// import { router } from '@inertiajs/react'
+// import { useState } from 'react'
+// import { FaEye } from 'react-icons/fa'
+// import { GrFormViewHide } from 'react-icons/gr'
 
-import InputError from '@/components/input-error';
-import TextLink from '@/components/text-link';
-import { Button } from '@/components/ui/button';
-import { Checkbox } from '@/components/ui/checkbox';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import AuthLayout from '@/layouts/auth-layout';
+// export default function Login({ code }) {
+//   const [values, setValues] = useState({ email: '', password: '' })
+//   const [memoire, setMemoire] = useState(false)
+//   const [Password, setPassword] = useState(false)
 
-type LoginForm = {
-    email: string;
-    password: string;
-    remember: boolean;
-};
+//   const submit = (e) => {
+//     e.preventDefault()
+//     router.post('/login', values)
+//   }
 
-interface LoginProps {
-    status?: string;
-    canResetPassword: boolean;
-}
+//   return (
+//     <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-gray-950 via-gray-900 to-black p-4 font-mono">
+//       <form
+//         onSubmit={submit}
+//         className="w-full max-w-md rounded-xl border border-cyan-600 bg-gray-900/70 backdrop-blur-md p-8 shadow-[0_0_20px_#06b6d4] hover:shadow-[0_0_30px_#22d3ee] transition duration-300"
+//       >
+//         <h2 className="mb-6 text-center text-3xl font-bold text-white uppercase tracking-wide">
+//           Se connecter
+//         </h2>
 
-export default function Login({ status, canResetPassword }: LoginProps) {
-    const { data, setData, post, processing, errors, reset } = useForm<Required<LoginForm>>({
-        email: '',
-        password: '',
-        remember: false,
-    });
+//         <label className="block mb-2 text-sm text-white tracking-wide" htmlFor="email">
+//           Adresse email
+//         </label>
+//         <input
+//           id="email"
+//           type="email"
+//           value={values.email}
+//           onChange={e => setValues({ ...values, email: e.target.value })}
+//           required
+//           autoFocus
+//           placeholder="coder@devmail.com"
+//           className="w-full rounded-md border border-cyan-500 bg-gray-800 px-4 py-2 text-cyan-100 placeholder-cyan-500 focus:ring-2 focus:ring-cyan-500 focus:outline-none mb-6 transition"
+//         />
 
-    const submit: FormEventHandler = (e) => {
-        e.preventDefault();
-        post(route('login'), {
-            onFinish: () => reset('password'),
-        });
-    };
+//         <label className="block mb-2 text-sm text-white tracking-wide" htmlFor="password">
+//           Mot de passe
+//         </label>
+//         <div className="relative mb-4">
+//           <input
+//             id="password"
+//             type={Password ? 'text' : 'password'}
+//             value={values.password}
+//             onChange={e => setValues({ ...values, password: e.target.value })}
+//             required
+//             placeholder="••••••••"
+//             className="w-full rounded-md border border-cyan-500 bg-gray-800 px-4 py-2 pr-12 text-cyan-100 placeholder-cyan-500 focus:ring-2 focus:ring-cyan-500 focus:outline-none transition"
+//           />
+//           <button
+//             type="button"
+//             onClick={() => setPassword(!Password)}
+//             className="absolute right-3 top-1/2 -translate-y-1/2 text-white hover:text-cyan-600"
+//             tabIndex={-1}
+//             aria-label={Password ? "Masquer le mot de passe" : "Afficher le mot de passe"}
+//           >
+//             {Password ? <GrFormViewHide size={20} /> : <FaEye size={18} />}
+//           </button>
+//         </div>
 
-    return (
-        <AuthLayout title="Log in to your account" description="Enter your email and password below to log in">
-            <Head title="Log in" />
+//         {code && (
+//           <a href="#reset-password" className="block mb-4 text-xs text-white hover:underline">
+//             Mot de passe oublié ?
+//           </a>
+//         )}
 
-            <form className="flex flex-col gap-6" onSubmit={submit}>
-                <div className="grid gap-6">
-                    <div className="grid gap-2">
-                        <Label htmlFor="email">Email address</Label>
-                        <Input
-                            id="email"
-                            type="email"
-                            required
-                            autoFocus
-                            tabIndex={1}
-                            autoComplete="email"
-                            value={data.email}
-                            onChange={(e) => setData('email', e.target.value)}
-                            placeholder="email@example.com"
-                        />
-                        <InputError message={errors.email} />
-                    </div>
+//         <label className="inline-flex items-center mb-6 text-sm text-white">
+//           <input
+//             type="checkbox"
+//             checked={memoire}
+//             onChange={e => setMemoire(e.target.checked)}
+//             className="mr-2 h-4 w-4 rounded border-cyan-500 bg-gray-800 text-white focus:ring-2 focus:ring-cyan-500"
+//           />
+//           Se souvenir de moi
+//         </label>
 
-                    <div className="grid gap-2">
-                        <div className="flex items-center">
-                            <Label htmlFor="password">Password</Label>
-                            {canResetPassword && (
-                                <TextLink href={route('password.request')} className="ml-auto text-sm" tabIndex={5}>
-                                    Forgot password?
-                                </TextLink>
-                            )}
-                        </div>
-                        <Input
-                            id="password"
-                            type="password"
-                            required
-                            tabIndex={2}
-                            autoComplete="current-password"
-                            value={data.password}
-                            onChange={(e) => setData('password', e.target.value)}
-                            placeholder="Password"
-                        />
-                        <InputError message={errors.password} />
-                    </div>
+//         <button
+//           type="submit"
+//           className="w-full rounded-md bg-cyan-600 py-3 font-semibold text-white hover:bg-cyan-700 transition focus:ring-2 focus:ring-cyan-300 focus:outline-none"
+//         >
+//           Se connecter
+//         </button>
+//       </form>
+//     </div>
+//   )
+// }
 
-                    <div className="flex items-center space-x-3">
-                        <Checkbox
-                            id="remember"
-                            name="remember"
-                            checked={data.remember}
-                            onClick={() => setData('remember', !data.remember)}
-                            tabIndex={3}
-                        />
-                        <Label htmlFor="remember">Remember me</Label>
-                    </div>
 
-                    <Button type="submit" className="mt-4 w-full" tabIndex={4} disabled={processing}>
-                        {processing && <LoaderCircle className="h-4 w-4 animate-spin" />}
-                        Log in
-                    </Button>
-                </div>
 
-                <div className="text-center text-sm text-muted-foreground">
-                    Don't have an account?{' '}
-                    <TextLink href={route('register')} tabIndex={5}>
-                        Sign up
-                    </TextLink>
-                </div>
-            </form>
 
-            {status && <div className="mb-4 text-center text-sm font-medium text-green-600">{status}</div>}
-        </AuthLayout>
-    );
+import { router, Link } from '@inertiajs/react'
+import { useState } from 'react'
+import { FaEye } from 'react-icons/fa'
+import { GrFormViewHide } from 'react-icons/gr'
+
+export default function Login({ code }) {
+  const [values, setValues] = useState({ email: '', password: '' })
+  const [memoire, setMemoire] = useState(false)
+  const [Password, setPassword] = useState(false)
+
+  const submit = (e) => {
+    e.preventDefault()
+    router.post('/login', values)
+  }
+
+  return (
+    <div className="relative flex min-h-screen items-center justify-center bg-black font-mono overflow-hidden p-4">
+   
+      <div className="absolute -top-20 -right-10 w-60 h-60 bg-cyan-700 opacity-10 blur-3xl rounded-full" />
+
+      <form
+        onSubmit={submit}
+        className="relative z-10 w-full max-w-md rounded-xl border border-cyan-600 bg-gray-900/70 backdrop-blur-md p-8 shadow-[0_0_30px_#06b6d4] hover:shadow-[0_0_40px_#22d3ee] transition duration-300"
+      >
+        <h2 className="mb-6 text-center text-3xl font-bold text-white uppercase tracking-wide">
+          Se connecter
+        </h2>
+
+        <label className="block mb-2 text-sm text-white tracking-wide" htmlFor="email">
+          Adresse email
+        </label>
+        <input
+          id="email"
+          type="email"
+          value={values.email}
+          onChange={e => setValues({ ...values, email: e.target.value })}
+          placeholder="coder@devmail.com"
+          className="w-full rounded-md border border-cyan-500 bg-white px-4 py-2 text-gray-900 placeholder-gray-700 focus:ring-2 focus:ring-cyan-500 focus:outline-none mb-6 transition"
+        />
+
+        <label className="block mb-2 text-sm text-white tracking-wide" htmlFor="password">
+          Mot de passe
+        </label>
+        <div className="relative mb-4">
+          <input
+            id="password"
+            type={Password ? 'text' : 'password'}
+            value={values.password}
+            onChange={e => setValues({ ...values, password: e.target.value })}
+            placeholder="••••••••"
+            className="w-full rounded-md border border-cyan-500 bg-white px-4 py-2 pr-12 text-gray-900 placeholder-gray-700 focus:ring-2 focus:ring-cyan-500 focus:outline-none transition"
+          />
+          <button
+            type="button"
+            onClick={() => setPassword(!Password)}
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-700 hover:text-cyan-600"
+            tabIndex={-1}
+            aria-label={Password ? "Masquer le mot de passe" : "Afficher le mot de passe"}
+          >
+            {Password ? <GrFormViewHide size={20} /> : <FaEye size={18} />}
+          </button>
+        </div>
+
+        {code && (
+          <a href="#reset-password" className="block mb-4 text-xs text-white hover:underline">
+            Mot de passe oublié ?
+          </a>
+        )}
+
+        <label className="inline-flex items-center mb-6 text-sm text-white">
+          <input
+            type="checkbox"
+            checked={memoire}
+            onChange={e => setMemoire(e.target.checked)}
+            className="mr-2 h-4 w-4 rounded border-cyan-500 bg-gray-800 text-white focus:ring-2 focus:ring-cyan-500"
+          />
+          Se souvenir de moi
+        </label>
+
+        <button
+          type="submit"
+          className="w-full rounded-md bg-cyan-600 py-3 font-semibold text-white hover:bg-cyan-700 transition focus:ring-2 focus:ring-cyan-300 focus:outline-none cursor-pointer"
+        >
+          Se connecter
+        </button>
+
+        <div className="mt-6 text-center text-sm text-white">
+          Pas encore de compte ?{' '}
+          <Link href="/register" className="text-cyan-400 hover:underline hover:text-cyan-300">
+            Inscrivez-vous
+          </Link>
+        </div>
+      </form>
+    </div>
+  )
 }

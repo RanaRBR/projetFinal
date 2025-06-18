@@ -1,119 +1,134 @@
-import { Head, useForm } from '@inertiajs/react';
-import { LoaderCircle } from 'lucide-react';
-import { FormEventHandler } from 'react';
-
-import InputError from '@/components/input-error';
-import TextLink from '@/components/text-link';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import AuthLayout from '@/layouts/auth-layout';
-
-type RegisterForm = {
-    name: string;
-    email: string;
-    password: string;
-    password_confirmation: string;
-};
+import { router } from '@inertiajs/react'
+import { useState } from 'react'
 
 export default function Register() {
-    const { data, setData, post, processing, errors, reset } = useForm<Required<RegisterForm>>({
-        name: '',
-        email: '',
-        password: '',
-        password_confirmation: '',
-    });
+  const [values, setValues] = useState({
+    name: '',
+    date: '',
+    age: '',
+    email: '',
+    password: '',
+    password_confirmation: '',
+  })
 
-    const submit: FormEventHandler = (e) => {
-        e.preventDefault();
-        post(route('register'), {
-            onFinish: () => reset('password', 'password_confirmation'),
-        });
-    };
+  const ajouter = (e) => {
+    e.preventDefault()
+    router.post('/register', values)
+  }
 
-    return (
-        <AuthLayout title="Create an account" description="Enter your details below to create your account">
-            <Head title="Register" />
-            <form className="flex flex-col gap-6" onSubmit={submit}>
-                <div className="grid gap-6">
-                    <div className="grid gap-2">
-                        <Label htmlFor="name">Name</Label>
-                        <Input
-                            id="name"
-                            type="text"
-                            required
-                            autoFocus
-                            tabIndex={1}
-                            autoComplete="name"
-                            value={data.name}
-                            onChange={(e) => setData('name', e.target.value)}
-                            disabled={processing}
-                            placeholder="Full name"
-                        />
-                        <InputError message={errors.name} className="mt-2" />
-                    </div>
+  const changer = (e) => {
+    setValues({ ...values, [e.target.name]: e.target.value })
+  }
 
-                    <div className="grid gap-2">
-                        <Label htmlFor="email">Email address</Label>
-                        <Input
-                            id="email"
-                            type="email"
-                            required
-                            tabIndex={2}
-                            autoComplete="email"
-                            value={data.email}
-                            onChange={(e) => setData('email', e.target.value)}
-                            disabled={processing}
-                            placeholder="email@example.com"
-                        />
-                        <InputError message={errors.email} />
-                    </div>
+  return (
+    <div className="relative flex min-h-screen items-center justify-center bg-black font-mono overflow-hidden p-4">
+      {/* néons en arrière-plan */}
+      <div className="absolute -top-20 -right-10 w-60 h-60 bg-cyan-700 opacity-10 blur-3xl rounded-full" />
+      <div className="absolute -bottom-20 -left-10 w-72 h-72 bg-cyan-500 opacity-10 blur-3xl rounded-full" />
+      
+      <form
+        onSubmit={ajouter}
+        className="relative z-10 w-full max-w-2xl rounded-xl border border-cyan-600 bg-gray-900/80 backdrop-blur-lg p-10 shadow-[0_0_30px_#06b6d4] hover:shadow-[0_0_40px_#22d3ee] transition duration-300"
+      >
+        <h1 className="mb-10 text-center text-3xl font-bold uppercase tracking-wide text-cyan-400">
+          Crée ton compte
+        </h1>
 
-                    <div className="grid gap-2">
-                        <Label htmlFor="password">Password</Label>
-                        <Input
-                            id="password"
-                            type="password"
-                            required
-                            tabIndex={3}
-                            autoComplete="new-password"
-                            value={data.password}
-                            onChange={(e) => setData('password', e.target.value)}
-                            disabled={processing}
-                            placeholder="Password"
-                        />
-                        <InputError message={errors.password} />
-                    </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label htmlFor="name" className="block mb-1 text-sm font-semibold text-cyan-200">Nom</label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              value={values.name}
+              onChange={changer}
+              placeholder="Ton nom"
+              required
+              className="w-full rounded-md border border-cyan-500 bg-white px-4 py-2 text-gray-900 placeholder-gray-700 focus:ring-2 focus:ring-cyan-500 focus:outline-none"
+            />
+          </div>
 
-                    <div className="grid gap-2">
-                        <Label htmlFor="password_confirmation">Confirm password</Label>
-                        <Input
-                            id="password_confirmation"
-                            type="password"
-                            required
-                            tabIndex={4}
-                            autoComplete="new-password"
-                            value={data.password_confirmation}
-                            onChange={(e) => setData('password_confirmation', e.target.value)}
-                            disabled={processing}
-                            placeholder="Confirm password"
-                        />
-                        <InputError message={errors.password_confirmation} />
-                    </div>
+          <div>
+            <label htmlFor="age" className="block mb-1 text-sm font-semibold text-cyan-200">Âge</label>
+            <input
+              id="age"
+              name="age"
+              type="number"
+              value={values.age}
+              onChange={changer}
+              placeholder="Ton âge"
+              required
+              className="w-full rounded-md border border-cyan-500 bg-white px-4 py-2 text-gray-900 placeholder-gray-700 focus:ring-2 focus:ring-cyan-500 focus:outline-none"
+            />
+          </div>
 
-                    <Button type="submit" className="mt-2 w-full" tabIndex={5} disabled={processing}>
-                        {processing && <LoaderCircle className="h-4 w-4 animate-spin" />}
-                        Create account
-                    </Button>
-                </div>
+          <div>
+            <label htmlFor="date" className="block mb-1 text-sm font-semibold text-cyan-200">Date</label>
+            <input
+              id="date"
+              name="date"
+              type="text"
+              value={values.date}
+              onChange={changer}
+              placeholder="JJ/MM/AAAA"
+              required
+              className="w-full rounded-md border border-cyan-500 bg-white px-4 py-2 text-gray-900 placeholder-gray-700 focus:ring-2 focus:ring-cyan-500 focus:outline-none"
+            />
+          </div>
 
-                <div className="text-center text-sm text-muted-foreground">
-                    Already have an account?{' '}
-                    <TextLink href={route('login')} tabIndex={6}>
-                        Log in
-                    </TextLink>
-                </div>
-            </form>
-        </AuthLayout>
-    );
+          <div>
+            <label htmlFor="email" className="block mb-1 text-sm font-semibold text-cyan-200">Email</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              value={values.email}
+              onChange={changer}
+              placeholder="dev@mail.com"
+              required
+              className="w-full rounded-md border border-cyan-500 bg-white px-4 py-2 text-gray-900 placeholder-gray-700 focus:ring-2 focus:ring-cyan-500 focus:outline-none"
+            />
+          </div>
+
+          <div>
+            <label htmlFor="password" className="block mb-1 text-sm font-semibold text-cyan-200">Mot de passe</label>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              value={values.password}
+              onChange={changer}
+              placeholder="••••••••"
+              required
+              className="w-full rounded-md border border-cyan-500 bg-white px-4 py-2 text-gray-900 placeholder-gray-700 focus:ring-2 focus:ring-cyan-500 focus:outline-none"
+            />
+          </div>
+
+          <div>
+            <label htmlFor="password_confirmation" className="block mb-1 text-sm font-semibold text-cyan-200">Confirme mot de passe</label>
+            <input
+              id="password_confirmation"
+              name="password_confirmation"
+              type="password"
+              value={values.password_confirmation}
+              onChange={changer}
+              placeholder="Confirmation"
+              required
+              className="w-full rounded-md border border-cyan-500 bg-white px-4 py-2 text-gray-900 placeholder-gray-700 focus:ring-2 focus:ring-cyan-500 focus:outline-none"
+            />
+          </div>
+        </div>
+
+        <div className="mt-10 text-center">
+          <button
+            type="submit"
+            className="w-full md:w-1/2 rounded-lg bg-cyan-600 py-3 font-semibold text-white hover:bg-cyan-700 transition focus:ring-2 focus:ring-cyan-300 focus:outline-none cursor-pointer"
+          >
+            Créer un compte
+          </button>
+        </div>
+      </form>
+    </div>
+  )
 }
