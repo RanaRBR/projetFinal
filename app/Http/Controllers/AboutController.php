@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\About;
 use App\Models\Article;
+use App\Models\Contact;
 use App\Models\Savoir;
 use App\Models\Temoin;
 use Illuminate\Http\Request;
@@ -20,11 +21,13 @@ class AboutController extends Controller
         $articles=Article::all();
         $temoins=Temoin::all();
         $savoirs=Savoir::all();
+        $contacts=Contact::all();
         return Inertia::render('welcome', [
             'abouts'=>$abouts,
             'articles'=>$articles,
             'temoins'=>$temoins,
             'savoirs'=>$savoirs,
+            'contacts'=>$contacts
 
         ]);
 

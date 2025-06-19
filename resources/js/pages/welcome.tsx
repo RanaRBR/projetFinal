@@ -1,3 +1,4 @@
+import SectionContact from "@/components/sectionContact/SectionContact";
 import NavBarre from "@/components/navBarre/NavBarre"
 import SectionAbout from "@/components/sectionAbout/SectionAbout"
 import SectionArticle from "@/components/sectionArticle/SectionArticle";
@@ -7,9 +8,9 @@ import { log } from "console";
 
 
 
-function Welcome({abouts, articles, temoins, savoirs}){
+function Welcome({abouts, articles, temoins, savoirs, contacts}){
 
-    console.log(articles);
+    console.log(contacts);
     
 
 
@@ -26,8 +27,7 @@ function Welcome({abouts, articles, temoins, savoirs}){
         <SectionArticle articles={articles}/>
         <SectionSavoir savoirs={savoirs}/>
         <SectionTemoin temoins={temoins}/>
-
-
+        <SectionContact contacts={contacts}/>
 
 
         </div>

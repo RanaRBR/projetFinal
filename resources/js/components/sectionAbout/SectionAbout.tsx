@@ -7,7 +7,7 @@ function SectionAbout({ abouts }) {
           className="relative w-full bg-cover bg-center py-32"
           style={{ backgroundImage: `url('${item.image}')` }}
         >
-          <div className="absolute inset-0 z-0 bg-black/88" />
+          <div className="absolute inset-0 z-0 bg-black/82" />
 
           <div className="relative z-10 container mx-auto px-4 text-left text-white">
             <div className="flex flex-col items-center lg:flex-row">

@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             TagSeeder::class,
             TemoinSeeder::class,
             SavoirSeeder::class,
+            ContactSeeder::class,
          ]);
 
     }

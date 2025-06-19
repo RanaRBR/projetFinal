@@ -46,7 +46,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/edit/savoir/{id}', [SavoirController::class, 'edit']);
     Route::put('/update/savoir/{id}', [SavoirController::class, 'update']);
 
-    
+    Route::get('/create/contact', [ContactController::class, 'create']);
+    Route::get('/edit/contact/{id}', [ContactController::class, 'edit']);
+    Route::put('/update/contact/{id}', [ContactController::class, 'update']);
+    Route::delete('/delete/contact/{id}', [ContactController::class, 'destroy']);
+    Route::post('/post/contact', [ContactController::class, 'store']);
+
+
     //mail
 
     Route::post('/send-email', [ContactController::class, 'sendContactForm']);

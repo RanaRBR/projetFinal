@@ -13,13 +13,13 @@ class SavoirController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        $savoirs = Savoir::all();
-        return Inertia::render('welcome', [
-        'savoirs' => $savoirs
-        ]);
-    }
+    // public function index()
+    // {
+    //     $savoirs = Savoir::all();
+    //     return Inertia::render('welcome', [
+    //     'savoirs' => $savoirs
+    //     ]);
+    // }
 
     /**
      * Show the form for creating a new resource.

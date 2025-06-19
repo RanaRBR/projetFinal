@@ -13,13 +13,13 @@ class ArticleController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        $articles = Article::with(['tag'])->get();
-        return Inertia::render('welcome', [
-            'articles' => $articles
-        ]);
-    }
+    // public function index()
+    // {
+    //     $articles = Article::with(['tag'])->get();
+    //     return Inertia::render('welcome', [
+    //         'articles' => $articles
+    //     ]);
+    // }
 
     public function all()
 {

@@ -13,13 +13,13 @@ class ContactController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        $contacts = Contact::all();
-        return Inertia::render('welcome', [
-            'contacts' => $contacts
-        ]);
-    }
+    // public function index()
+    // {
+    //     $contacts = Contact::all();
+    //     return Inertia::render('welcome', [
+    //         'contacts' => $contacts
+    //     ]);
+    // }
 
     /**
      * Show the form for creating a new resource.

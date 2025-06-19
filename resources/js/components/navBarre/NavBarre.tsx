@@ -111,27 +111,23 @@
 // }
 
 
-
 import { Link } from '@inertiajs/react'
-import { FiMail, FiHome, FiUser, FiCamera, FiMessageSquare } from 'react-icons/fi'
+import { FiMail, FiHome, FiCamera, FiMessageSquare, FiInfo } from 'react-icons/fi'
 import { FaUser } from "react-icons/fa6";
-
-
 
 export default function NavBarre() {
   return (
     <nav className="fixed top-4 mt-6 left-1/2 z-50 -translate-x-1/2 w-[95%] max-w-7xl rounded-full bg-black/30 backdrop-blur-md shadow-lg px-8 py-3 border border-cyan-400/40">
       <div className="flex items-center justify-between">
-<Link href="/" className="flex items-center flex-shrink-0">
-  <div className="h-18 w-18 rounded-lg overflow-hidden ">
-    <img
-      src="/images/logo6.png"
-      alt="Logo"
-      className="h-full w-full object-cover"
-    />
-  </div>
-</Link>
-
+        <Link href="/" className="flex items-center flex-shrink-0">
+          <div className="h-18 w-18 rounded-lg overflow-hidden ">
+            <img
+              src="/images/logo6.png"
+              alt="Logo"
+              className="h-full w-full object-cover"
+            />
+          </div>
+        </Link>
 
         <div className="hidden md:flex items-center space-x-8">
           <Link href="/" className="group relative flex items-center space-x-2 text-white hover:text-cyan-600 transition">
@@ -141,42 +137,37 @@ export default function NavBarre() {
           </Link>
 
           <Link href="#about" className="group relative flex items-center space-x-2 text-white hover:text-cyan-600 transition">
-            <FiUser size={18} />
+            <FiInfo size={18} />
             <span className="uppercase text-sm font-semibold tracking-wider">A propos</span>
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-600 transition-all duration-300 group-hover:w-full"></span>
           </Link>
 
-          <Link href="#media" className="group relative flex items-center space-x-2 text-white hover:text-cyan-600 transition">
+          <Link href="/#media" className="group relative flex items-center space-x-2 text-white hover:text-cyan-600 transition">
             <FiCamera size={18} />
             <span className="uppercase text-sm font-semibold tracking-wider">Média</span>
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-600 transition-all duration-300 group-hover:w-full"></span>
           </Link>
 
-          <Link href="#myTemoignages" className="group relative flex items-center space-x-2 text-white hover:text-cyan-600 transition">
+          <Link href="/#myTemoignages" className="group relative flex items-center space-x-2 text-white hover:text-cyan-600 transition">
             <FiMessageSquare size={18} />
             <span className="uppercase text-sm font-semibold tracking-wider">Témoignages</span>
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-600 transition-all duration-300 group-hover:w-full"></span>
           </Link>
         </div>
 
-        <Link
-          href="#contact"
-          className="group flex items-center space-x-2 text-white hover:text-cyan-600 transition"
-        >
-          <FiMail className="text-cyan-600 group-hover:animate-pulse" size={18} />
-          <span className="font-medium tracking-wide uppercase">Contact</span>
-        </Link>
+        <div className="flex items-center space-x-6">
+          <Link
+            href="/#contact"
+            className="group flex items-center space-x-2 text-white hover:text-cyan-600 transition"
+          >
+            <FiMail className="text-cyan-600 group-hover:animate-pulse" size={18} />
+            <span className="font-medium tracking-wide uppercase">Contact</span>
+          </Link>
 
-        <Link 
-        href="/login">
-
-        <FaUser className=" text-white hover:text-cyan-600 transition cursor-pointer" size={18}  />
-
-        </Link>
-
-        
-
-
+          <Link href="/login">
+            <FaUser className="text-white hover:text-cyan-600 transition cursor-pointer" size={18} />
+          </Link>
+        </div>
       </div>
     </nav>
   )
