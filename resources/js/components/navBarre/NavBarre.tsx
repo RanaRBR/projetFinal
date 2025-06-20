@@ -117,7 +117,7 @@ import { FaUser } from "react-icons/fa6";
 
 export default function NavBarre() {
   return (
-    <nav className="fixed top-4 mt-6 left-1/2 z-50 -translate-x-1/2 w-[95%] max-w-7xl rounded-full bg-black/30 backdrop-blur-md shadow-lg px-8 py-3 border border-cyan-400/40">
+    <nav className="fixed top-4 mt-6 left-1/2 z-50 -translate-x-1/2 w-[95%] max-w-8xl rounded-full bg-black/30 backdrop-blur-md shadow-lg px-8 py-3 border border-cyan-400/40">
       <div className="flex items-center justify-between">
         <Link href="/" className="flex items-center flex-shrink-0">
           <div className="h-18 w-18 rounded-lg overflow-hidden ">

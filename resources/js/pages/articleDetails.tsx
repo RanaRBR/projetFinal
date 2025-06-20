@@ -1,47 +1,97 @@
-
 import NavBarre from '@/components/navBarre/NavBarre';
 import SectionCommentaire from '@/components/sectionCommentaire/SectionCommentaire';
+import { router } from '@inertiajs/react';
+import { useState } from 'react';
+import { FaHeart } from 'react-icons/fa';
 
+export default function ArticleDetails({ article, auth_user_id }) {
+    const [liked, setLiked] = useState(article.likes?.some((like) => like.user_id === auth_user_id) || false);
+    const [likesCount, setLikesCount] = useState(article.likes?.length || 0);
+    const [loading, setLoading] = useState(false);
 
+    function toggle() {
+        if (loading) return;
 
-export default function ArticleDetails({ article }) {
+        setLoading(true);
+
+        if (!liked) {
+            router.post(
+                `/likes`,
+                { article_id: article.id },
+                {
+                    onSuccess: () => {
+                        setLiked(true);
+                        setLikesCount((count) => count + 1);
+                        setLoading(false);
+                    },
+                    onError: () => setLoading(false),
+                    onCancel: () => setLoading(false),
+                },
+            );
+        } else {
+            router.delete(`/likes/${article.id}`, {
+                onSuccess: () => {
+                    setLiked(false);
+                    setLikesCount((count) => Math.max(count - 1, 0));
+                    setLoading(false);
+                },
+                onError: () => setLoading(false),
+                onCancel: () => setLoading(false),
+            });
+        }
+    }
 
     return (
         <>
             <NavBarre />
-            <div id="media" className="min-h-screen bg-white px-6 py-12 flex justify-center mt-40">
-                <div className="max-w-3xl w-full border-t-2 border-cyan-600 pt-8" style={{ fontFamily: "'Merriweather', serif" }}>
-                    <h1 className="text-4xl font-serif font-bold text-gray-900 leading-tight mb-6">
-                        {article.titre}
-                    </h1>
+            <div id="media" className="mt-40 flex min-h-screen justify-center bg-white px-6 py-12">
+                <div className="w-full max-w-3xl border-t-2 border-cyan-600 pt-8" style={{ fontFamily: "'Merriweather', serif" }}>
+                    <h1 className="mb-6 font-serif text-4xl leading-tight font-bold text-gray-900">{article.titre}</h1>
 
-                    <div className="text-gray-800 text-lg leading-relaxed" style={{ fontWeight: 400, lineHeight: 1.7 }}>
+                    <div className="text-lg leading-relaxed text-gray-800" style={{ fontWeight: 400, lineHeight: 1.7 }}>
                         <img
                             src={article.photo}
                             alt={article.titre}
-                            className="float-left w-105 mr-6 rounded-sm shadow-md object-cover mb-10"
+                            className="float-left mr-6 mb-10 w-105 rounded-sm object-cover shadow-md"
                             style={{ maxHeight: '200px' }}
                         />
                         {article.paragraphe}
                     </div>
 
-                    <div className='text-black'>
-                        {article.tags.map((elem, index)=>
-                        (
-                            <div key= {index}>{elem.name}</div>
-                        )
-                        )}
-                    </div>
+                    <div className="text-black">{article.tags?.map((elem, index) => <div key={index}>{elem.name}</div>)}</div>
 
-                    <section className="mt-10 flex justify-between text-sm text-gray-600 italic font-serif">
-                        <span><strong>Date :</strong> {article.date}</span>
-                        <span><strong>Auteur :</strong> {article.auteur}</span>
+                    <section className="mt-10 flex justify-between font-serif text-sm text-gray-600 italic">
+                        <span>
+                            <strong>Date :</strong> {article.date}
+                        </span>
+                        <span>
+                            <strong>Auteur :</strong> {article.auteur}
+                        </span>
                     </section>
 
+                    <div className="mt-4 flex flex-wrap gap-2">
+                        {article.tags?.map((tag, index) => (
+                            <span
+                                key={index}
+                                className="cursor-pointer rounded bg-cyan-500 px-3 py-1 text-sm font-semibold text-white transition-colors duration-200 hover:bg-cyan-600"
+                            >
+                                {tag.name}
+                            </span>
+                        ))}
+                    </div>
+
+                    <button
+                        onClick={toggle}
+                        disabled={loading}
+                        className={`mt-6 flex cursor-pointer items-center gap-2 rounded-full px-4 py-2 ${liked ? 'text-red-600' : 'text-gray-700'}`}
+                        aria-label={liked ? 'unlike' : 'like'}
+                    >
+                        <FaHeart size={24} />
+                        <span>{likesCount}</span>
+                    </button>
+
                     <SectionCommentaire article={article} />
-
                 </div>
-
             </div>
         </>
     );

@@ -68,7 +68,6 @@ export default function Articles({ articles }) {
                     >
                         Tous les articles
                     </Link>
-
                     <div className="mt-8 flex justify-center gap-2 text-xl">
                         {articles.map((_, index) => (
                             <TfiLayoutLineSolid

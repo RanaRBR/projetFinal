@@ -61,7 +61,7 @@ export default function SectionCommentaire({ article }) {
           <button
             type="submit"
             disabled={processing}
-            className="mt-2 px-6 bg-cyan-600 text-white py-2 rounded-full cursor-pointer"
+            className="mt-4 px-8 bg-cyan-500 text-sm font-semibold text-white transition-colors duration-200 hover:bg-cyan-600 py-2 rounded-full cursor-pointer "
           >
             Poster
           </button>

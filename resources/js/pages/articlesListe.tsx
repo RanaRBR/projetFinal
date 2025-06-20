@@ -9,12 +9,12 @@ export default function ArticlesListe({ articles }) {
 
     const filtrerArticles = () => {
         return articles.filter((article) => {
-            const Loc = article.local === true || article.local === 'true' || article.local === 1 || article.local === '1';
+            const locaux = article.local === true || article.local === 'true' || article.local === 1 || article.local === '1';
 
             const correspondFiltre =
                 filtre === 'tous' ||
-                (filtre === 'local' && Loc) ||
-                (filtre === 'etranger' && !Loc);
+                (filtre === 'local' && locaux) ||
+                (filtre === 'etranger' && !locaux);
 
             const correspondRecherche = article.titre.toLowerCase().includes(search.toLowerCase());
 
@@ -123,3 +123,5 @@ export default function ArticlesListe({ articles }) {
         </section>
     );
 }
+
+

@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CommentaireController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\LikeController;
 use App\Http\Controllers\SavoirController;
 use App\Http\Controllers\TemoinController;
 use App\Models\About;
@@ -21,6 +22,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // Route::get('dashboard', function () {
     //     return Inertia::render('dashboard');
     // })->name('dashboard');
+
+    Route::post('/likes', [LikeController::class, 'store']);
+    Route::delete('/likes/{article}', [LikeController::class, 'destroy']);
 
 
     Route::post('/articles/{article}/commentaires', [CommentaireController::class, 'store']);

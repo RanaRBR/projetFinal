@@ -17,8 +17,8 @@ export default function SectionContact({ contacts }) {
     };
 
     return (
-        <section className="body-font relative overflow-hidden bg-gray-50 text-gray-800 ">
-            <div id="contact" className="m-8 mx-auto mt-16 max-w-7xl rounded-lg bg-white p-10 shadow-md sm:p-16">
+        <section className="body-font relative overflow-hidden bg-white text-gray-800 ">
+            <div id="contact" className="m-8 mx-auto mt-16 max-w-7xl rounded-lg bg-white p-10  sm:p-16">
                 <h2
                     className="mb-6 text-5xl font-medium text-cyan-600 uppercase text-center p-5"
                     style={{ fontFamily: "'Merriweather', sans-serif", fontStyle: 'normal', fontWeight: 600 }}
@@ -70,7 +70,7 @@ export default function SectionContact({ contacts }) {
 
                     <form onSubmit={soumettre} className="w-full max-w-lg rounded-lg border border-gray-300 bg-white p-10 shadow-lg md:w-1/2">
                         <h2 className="mb-4 text-center text-2xl font-semibold text-cyan-600">Envoyer un message</h2>
-                        <p className="mb-8 text-center text-sm text-gray-600">Remplir ce formulaire pour m'envoyer un message</p>
+                        <p className="mb-8 text-center text-sm text-gray-600">Remplir ce formulaire pour nous contacter</p>
 
                         <div className="space-y-5">
                             <div>
