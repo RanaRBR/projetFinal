@@ -1,6 +1,6 @@
 import { Link, useForm } from '@inertiajs/react';
 
-export default function SectionContact({ contacts }) {
+export default function SectionContact({ contacts = [] }) {
     const { data, setData, post, processing, errors, reset } = useForm({
         name: '',
         email: '',
@@ -8,6 +8,10 @@ export default function SectionContact({ contacts }) {
     });
 
     const contact = contacts[0];
+
+    if (!contact) {
+        return <p className="text-center p-10">Aucune information de contact disponible.</p>;
+    }
 
     const soumettre = (e) => {
         e.preventDefault();
@@ -33,7 +37,7 @@ export default function SectionContact({ contacts }) {
                             height="300"
                             className="rounded-lg"
                             title="map"
-                            src={contact.localisation} 
+                            src={contact.localisation}
                             style={{ border: 0 }}
                             allowFullScreen
                             loading="lazy"
@@ -68,7 +72,10 @@ export default function SectionContact({ contacts }) {
                         </div>
                     </div>
 
-                    <form onSubmit={soumettre} className="w-full max-w-lg rounded-lg border border-gray-300 bg-white p-10 shadow-lg md:w-1/2">
+                    <form
+                        onSubmit={soumettre}
+                        className="w-full max-w-lg rounded-lg border border-gray-300 bg-white p-10 shadow-lg md:w-1/2"
+                    >
                         <h2 className="mb-4 text-center text-2xl font-semibold text-cyan-600">Envoyer un message</h2>
                         <p className="mb-8 text-center text-sm text-gray-600">Remplir ce formulaire pour nous contacter</p>
 

@@ -58,7 +58,7 @@ class CommentaireController extends Controller
     {
     $commentaire = Commentaire::find($id);
 
-   return Inertia::render('editCommentaire', [
+   return Inertia::render('EditCommentaire', [
     'commentaire' => $commentaire,
 ]);
 

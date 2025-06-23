@@ -55,5 +55,6 @@ class User extends Authenticatable
     return $this->hasMany(Commentaire::class);
 }
 
+
 }
 

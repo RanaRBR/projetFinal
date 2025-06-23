@@ -1,4 +1,5 @@
-function SectionAbout({ abouts }) {
+function SectionAbout({ abouts = [] }) {
+  
   return (
     <div className="flex mt-35 items-center bg-gray-50" id="about">
       {abouts.map((item) => (

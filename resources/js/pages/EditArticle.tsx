@@ -1,109 +1,149 @@
-import NavBarre from '@/components/navBarre/NavBarre'
 import { useState } from 'react'
 import { router } from '@inertiajs/react'
 
 export default function EditArticle({ article }) {
-    const [values, setValues] = useState({
-        titre: article.titre || '',
-        paragraphe: article.paragraphe || '',
-        photo: article.photo || '',
+  const [values, setValues] = useState({
+    titre: article.titre || '',
+    paragraphe: article.paragraphe || '',
+    photo: article.photo || '',
+    date: article.date || '',
+    auteur: article.auteur || '',
+    local: article.local || '',
+  })
+
+  const [loading, setLoading] = useState(false)
+
+  const modifier = (e) => {
+    const { name, value } = e.target
+    setValues({ ...values, [name]: value })
+  }
+
+  const actualiser = (e) => {
+    e.preventDefault()
+    if (loading) return
+
+    setLoading(true)
+    router.put(`/update/article/${article.id}`, values, {
+      onSuccess: () => {
+        router.visit('/articles') 
+      },
+      onFinish: () => setLoading(false),
     })
+  }
 
-    const [loading, setLoading] = useState(false)
+  const supprimer = () => {
+    router.delete(`/delete/article/${article.id}`, {
+      onSuccess: () => {
+        router.visit('/articles') 
+      },
+      onFinish: () => setLoading(false),
+    })
+  }
 
-    const modifier = (e) => {
-        const { name, value } = e.target
-        setValues({ ...values, [name]: value })
-    }
+  return (
+    <div className="relative min-h-screen flex items-center justify-center px-4 py-12 overflow-hidden">
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat blur-none scale-110"
+        style={{ backgroundImage: "url('/images/form2.jpg')" }}
+      />
 
-    const actualiser = (e) => {
-        e.preventDefault()
-        if (loading) return
+      <form
+        onSubmit={actualiser}
+        className="relative z-10 w-full max-w-2xl bg-white text-black rounded-lg shadow-md p-8"
+      >
+        <h2 className="text-3xl font-semibold text-gray-900 mb-6 text-center uppercase tracking-wide font-sans">
+          Modifier l’article
+        </h2>
 
-        setLoading(true)
-        router.put(`/update/article/${article.id}`, values, {
-            onFinish: () => setLoading(false),
-        })
-    }
+        <div className="mb-4">
+          <label className="block text-black font-medium mb-2">Titre</label>
+          <input
+            type="text"
+            name="titre"
+            value={values.titre}
+            onChange={modifier}
+            placeholder="Titre de l’article"
+            className="w-full px-4 py-3 border rounded-md"
+          />
+        </div>
 
-    const supprimer = () => {
-        if (!confirm('Confirmer la suppression de cet article ?')) return
+        <div className="mb-4">
+          <label className="block text-gray-700 font-medium mb-2">Paragraphe</label>
+          <textarea
+            name="paragraphe"
+            rows="6"
+            value={values.paragraphe}
+            onChange={modifier}
+            placeholder="Contenu de l’article"
+            className="w-full px-4 py-3 border rounded-md resize-none"
+          />
+        </div>
 
-        setLoading(true)
-        router.delete(`/delete/article/${article.id}`, {
-            onFinish: () => setLoading(false),
-        })
-    }
+        <div className="mb-4">
+          <label className="block text-gray-700 font-medium mb-2">Image (url ou nom du fichier)</label>
+          <input
+            type="text"
+            name="photo"
+            value={values.photo}
+            onChange={modifier}
+            placeholder="photo.jpg"
+            className="w-full px-4 py-3 border rounded-md"
+          />
+        </div>
 
-    return (
-        <>
-            <div className="flex items-center justify-center min-h-screen bg-black px-4 py-20">
-                <form
-                    onSubmit={actualiser}
-                    className="w-full max-w-3xl bg-gray-900 p-10 rounded-xl shadow-lg border border-cyan-600"
-                >
-                    <h2 className="text-3xl font-bold text-center mb-8 text-cyan-400">
-                        Modifier l’article
-                    </h2>
+        <div className="mb-4">
+          <label className="block text-gray-700 font-medium mb-2">Date</label>
+          <input
+            type="date"
+            name="date"
+            value={values.date}
+            onChange={modifier}
+            className="w-full px-4 py-3 border rounded-md"
+            required
+          />
+        </div>
 
-                    <div className="grid grid-cols-1 gap-6">
-                        <div>
-                            <label className="block text-gray-300 mb-1 font-bold text-lg">Titre</label>
-                            <input
-                                type="text"
-                                name="titre"
-                                value={values.titre}
-                                onChange={modifier}
-                                className="w-full px-4 py-2 border border-cyan-500 rounded-md bg-gray-800 text-gray-300 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-600"
-                                placeholder="Titre de l’article"
-                            />
-                        </div>
+        <div className="mb-4">
+          <label className="block text-gray-700 font-medium mb-2">Auteur</label>
+          <input
+            type="text"
+            name="auteur"
+            value={values.auteur}
+            onChange={modifier}
+            className="w-full px-4 py-3 border rounded-md"
+          />
+        </div>
 
-                        <div>
-                            <label className="block text-gray-300 mb-1 font-bold text-lg">Paragraphe</label>
-                            <textarea
-                                name="paragraphe"
-                                rows="6"
-                                value={values.paragraphe}
-                                onChange={modifier}
-                                className="w-full px-4 py-2 border border-cyan-500 rounded-md bg-gray-800 text-gray-300 placeholder-gray-500 resize-none focus:outline-none focus:ring-2 focus:ring-cyan-600"
-                                placeholder="Contenu de l’article"
-                            ></textarea>
-                        </div>
+        <div className="mb-6">
+          <label className="block text-gray-700 font-medium mb-2">Localisation</label>
+          <input
+            type="text"
+            name="local"
+            value={values.local}
+            onChange={modifier}
+            className="w-full px-4 py-3 border rounded-md"
+          />
+        </div>
 
-                        <div>
-                            <label className="block text-gray-300 mb-1 font-bold text-lg">Image (url ou nom du fichier)</label>
-                            <input
-                                type="text"
-                                name="photo"
-                                value={values.photo}
-                                onChange={modifier}
-                                className="w-full px-4 py-2 border border-cyan-500 rounded-md bg-gray-800 text-gray-300 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-600"
-                                placeholder="photo.jpg"
-                            />
-                        </div>
-                    </div>
+        <div className="flex justify-between gap-4">
+          <button
+            type="submit"
+            disabled={loading}
+            className="w-full bg-cyan-600 hover:bg-cyan-700 text-black font-semibold py-3 rounded-md transition cursor-pointer"
+          >
+            Mettre à jour
+          </button>
 
-                    <div className="mt-8 flex justify-between items-center">
-                        <button
-                            type="submit"
-                            disabled={loading}
-                            className="px-6 py-3 bg-cyan-600 text-white rounded-lg font-semibold hover:bg-cyan-700 focus:outline-none focus:ring-4 focus:ring-cyan-300 transition-all"
-                        >
-                            Mettre à jour
-                        </button>
-
-                        <button
-                            type="button"
-                            onClick={supprimer}
-                            disabled={loading}
-                            className="px-6 py-3 bg-red-600 text-white rounded-lg font-semibold hover:bg-red-700 focus:outline-none focus:ring-4 focus:ring-red-300 transition-all"
-                        >
-                            Supprimer
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </>
-    )
+          <button
+            type="button"
+            onClick={supprimer}
+            disabled={loading}
+            className="w-full bg-red-600 hover:bg-red-700 text-black font-semibold py-3 rounded-md transition cursor-pointer"
+          >
+            Supprimer
+          </button>
+        </div>
+      </form>
+    </div>
+  )
 }

@@ -10,7 +10,7 @@ class Tag extends Model
     /** @use HasFactory<\Database\Factories\TagFactory> */
     use HasFactory;
 
-    public function Article(){
+    public function articles(){
         return $this->belongsToMany(Article::class);
     }
 }

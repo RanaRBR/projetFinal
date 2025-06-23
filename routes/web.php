@@ -2,11 +2,15 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\CommentaireController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\SavoirController;
+use App\Http\Controllers\TagController;
 use App\Http\Controllers\TemoinController;
+use App\Http\Controllers\UserController;
 use App\Models\About;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -37,7 +41,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/edit/about/{id}', [AboutController::class, 'edit']);
     Route::put('/update/about/{id}', [AboutController::class, 'update']);
 
-    
+    Route::get('/articles/{id}', [ArticleController::class, 'show']);
     Route::get('/create/article', [ArticleController::class, 'create']);
     Route::get('/edit/article/{id}', [ArticleController::class, 'edit']);
     Route::put('/update/article/{id}', [ArticleController::class, 'update']);
@@ -61,11 +65,23 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::post('/send-email', [ContactController::class, 'sendContactForm']);
 
-    
-    Route::get('dashboard', function () {
-        $abouts = About::all();
-        return Inertia::render('dashboard', ['abouts' => $abouts]);
-    })->name('dashboard');
+
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    Route::resource('articles', ArticleController::class)->except(['show']);
+
+    Route::resource('categories', CategorieController::class)->except(['show']);
+
+    Route::resource('tags', TagController::class)->except(['show']);
+    Route::get('/tags', [TagController::class, 'index']);
+    Route::post('/tags', [TagController::class, 'store']);
+    Route::get('/tags/create', [TagController::class, 'create']);
+
+
+
+    Route::middleware('role:admin')->group(function () {
+        Route::resource('users', UserController::class)->except(['show']);
+    });
 });
 
 require __DIR__.'/settings.php';

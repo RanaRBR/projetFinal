@@ -1,35 +1,70 @@
-import { PlaceholderPattern } from '@/components/ui/placeholder-pattern';
-import AppLayout from '@/layouts/app-layout';
-import { type BreadcrumbItem } from '@/types';
-import { Head } from '@inertiajs/react';
+import { Link, router } from '@inertiajs/react'
 
-const breadcrumbs: BreadcrumbItem[] = [
-    {
-        title: 'Dashboard',
-        href: '/dashboard',
-    },
-];
+export default function Dashboard({ tags, categories, roles, articles }) {
+  const supprimer = (e, item, id) => {
+    e.preventDefault()
+    router.delete(`/${item}/${id}`, {
+      onSuccess: () => router.visit('/dashboard'),
+    })
+  }
+const sections = [
+  { titre: 'articles', items: articles ?? [] },
+  { titre: 'tags', items: tags ?? [] },
+  { titre: 'catégories', items: categories ?? [] },
+  { titre: 'rôles', items: roles ?? [] },
+]
 
-export default function Dashboard() {
-    return (
-        <AppLayout breadcrumbs={breadcrumbs}>
-            <Head title="Dashboard" />
-            <div className="flex h-full flex-1 flex-col gap-4 rounded-xl p-4 overflow-x-auto">
-                <div className="grid auto-rows-min gap-4 md:grid-cols-3">
-                    <div className="relative aspect-video overflow-hidden rounded-xl border border-sidebar-border/70 dark:border-sidebar-border">
-                        <PlaceholderPattern className="absolute inset-0 size-full stroke-neutral-900/20 dark:stroke-neutral-100/20" />
-                    </div>
-                    <div className="relative aspect-video overflow-hidden rounded-xl border border-sidebar-border/70 dark:border-sidebar-border">
-                        <PlaceholderPattern className="absolute inset-0 size-full stroke-neutral-900/20 dark:stroke-neutral-100/20" />
-                    </div>
-                    <div className="relative aspect-video overflow-hidden rounded-xl border border-sidebar-border/70 dark:border-sidebar-border">
-                        <PlaceholderPattern className="absolute inset-0 size-full stroke-neutral-900/20 dark:stroke-neutral-100/20" />
-                    </div>
-                </div>
-                <div className="relative min-h-[100vh] flex-1 overflow-hidden rounded-xl border border-sidebar-border/70 md:min-h-min dark:border-sidebar-border">
-                    <PlaceholderPattern className="absolute inset-0 size-full stroke-neutral-900/20 dark:stroke-neutral-100/20" />
-                </div>
+
+  return (
+    <section className="body-font relative overflow-hidden bg-white text-gray-800 min-h-screen p-8">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-12 text-center">
+          <h1 className="text-5xl font-medium text-cyan-600 uppercase" style={{ fontFamily: "'Merriweather', sans-serif" }}>
+            tableau de bord
+          </h1>
+          <Link href="/" className="mt-2 inline-block text-lg text-cyan-600 hover:underline">
+            Retour
+          </Link>
+        </div>
+
+        {sections.map((section) => (
+          <div key={section.titre} className="mb-16">
+            <div className="mb-6 flex items-center justify-between">
+              <h2 className="text-2xl font-semibold text-gray-800 capitalize">{section.titre}</h2>
+              <Link
+                href={`/${section.titre}/create`}
+                className="rounded bg-cyan-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-cyan-500"
+              >
+                créer
+              </Link>
             </div>
-        </AppLayout>
-    );
+
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {section.items.map((item) => (
+                <div key={item.id} className="rounded-lg border border-gray-200 bg-white p-6 shadow hover:shadow-md transition-all">
+                  <p className="mb-4 font-semibold text-gray-800">
+                    {item.titre || item.nom || item.name || item.label}
+                  </p>
+                  <div className="flex items-center justify-between">
+                    <Link
+                      href={`/${section.titre}/${item.id}/edit`}
+                      className="text-sm text-cyan-600 hover:underline"
+                    >
+                      modifier
+                    </Link>
+                    <button
+                      onClick={(e) => supprimer(e, section.titre, item.id)}
+                      className="text-sm text-red-500 hover:underline"
+                    >
+                      supprimer
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  )
 }

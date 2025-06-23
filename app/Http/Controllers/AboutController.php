@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\About;
 use App\Models\Article;
+use App\Models\Categorie;
+use App\Models\Commentaire;
 use App\Models\Contact;
 use App\Models\Like;
 use App\Models\Savoir;
+use App\Models\Tag;
 use App\Models\Temoin;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -24,6 +27,9 @@ class AboutController extends Controller
         $savoirs=Savoir::all();
         $contacts=Contact::all();
         $likes=Like::all();
+        $categories=Categorie::all();
+        $commentaires=Commentaire::all();
+        $tags=Tag::all();
         return Inertia::render('welcome', [
             'abouts'=>$abouts,
             'articles'=>$articles,
@@ -31,6 +37,9 @@ class AboutController extends Controller
             'savoirs'=>$savoirs,
             'contacts'=>$contacts,
             'likes'=>$likes,
+            'categories'=>$categories,
+            'commentaires'=>$commentaires,
+            'tags'=>$tags,
 
         ]);
 

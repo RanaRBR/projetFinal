@@ -9,41 +9,29 @@ export default function ArticleDetails({ article, auth_user_id }) {
     const [likesCount, setLikesCount] = useState(article.likes?.length || 0);
     const [loading, setLoading] = useState(false);
 
-    function toggle() {
+    function toggle(e) {
+        e.preventDefault();
         if (loading) return;
-
         setLoading(true);
 
+        const onSuccess = () => {
+            setLiked(!liked);
+            setLikesCount((count) => (liked ? Math.max(count - 1, 0) : count + 1));
+            setLoading(false);
+        };
+
+        const onFail = () => setLoading(false);
+
         if (!liked) {
-            router.post(
-                `/likes`,
-                { article_id: article.id },
-                {
-                    onSuccess: () => {
-                        setLiked(true);
-                        setLikesCount((count) => count + 1);
-                        setLoading(false);
-                    },
-                    onError: () => setLoading(false),
-                    onCancel: () => setLoading(false),
-                },
-            );
+            router.post('/likes', { article_id: article.id }, { onSuccess, onError: onFail, onCancel: onFail });
         } else {
-            router.delete(`/likes/${article.id}`, {
-                onSuccess: () => {
-                    setLiked(false);
-                    setLikesCount((count) => Math.max(count - 1, 0));
-                    setLoading(false);
-                },
-                onError: () => setLoading(false),
-                onCancel: () => setLoading(false),
-            });
+            router.delete(`/likes/${article.id}`, { onSuccess, onError: onFail, onCancel: onFail });
         }
     }
 
     return (
         <>
-            <NavBarre />
+            <NavBarre auth_user_id={auth_user_id} />
             <div id="media" className="mt-40 flex min-h-screen justify-center bg-white px-6 py-12">
                 <div className="w-full max-w-3xl border-t-2 border-cyan-600 pt-8" style={{ fontFamily: "'Merriweather', serif" }}>
                     <h1 className="mb-6 font-serif text-4xl leading-tight font-bold text-gray-900">{article.titre}</h1>
@@ -81,6 +69,7 @@ export default function ArticleDetails({ article, auth_user_id }) {
                     </div>
 
                     <button
+                        type="button"
                         onClick={toggle}
                         disabled={loading}
                         className={`mt-6 flex cursor-pointer items-center gap-2 rounded-full px-4 py-2 ${liked ? 'text-red-600' : 'text-gray-700'}`}

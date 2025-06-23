@@ -13,21 +13,23 @@ class ArticleController extends Controller
     /**
      * Display a listing of the resource.
      */
-    // public function index()
-    // {
-    //     $articles = Article::with(['tag'])->get();
-    //     return Inertia::render('welcome', [
-    //         'articles' => $articles
-    //     ]);
-    // }
+   public function index()
+    {
+    $articles = Article::with('tags')->get();
 
-    public function all()
-{
-    $articles = Article::all();
     return Inertia::render('articlesListe', [
-        'articles' => $articles
+        'articles' => $articles,
     ]);
-}
+    }
+
+
+//     public function all()
+// {
+//     $articles = Article::all();
+//     return Inertia::render('articlesListe', [
+//         'articles' => $articles
+//     ]);
+// }
 
 // public function all(Request $request)
 // {
@@ -63,7 +65,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        return Inertia::render('createArticle');
+        return Inertia::render('CreateArticle');
     }
 
     /**
@@ -78,7 +80,6 @@ class ArticleController extends Controller
         $article->photo = $request->photo;
         $article->auteur = $request->auteur;
         $article->local=$request->local;
-        $article->article_id = $request->article_id;
         $article->save();
     }
 
@@ -95,7 +96,7 @@ class ArticleController extends Controller
     public function edit($id)
     {
         $article = Article::find($id);
-        return Inertia::render('editArticle', ['article' => $article]);
+        return Inertia::render('EditArticle', ['article' => $article]);
     }
 
     /**
@@ -110,7 +111,6 @@ class ArticleController extends Controller
         $article->photo = $request->photo;
         $article->auteur = $request->auteur;
         $article->local=$request->local;
-        $article->article_id = $request->article_id;
         $article->save();
     }
 
@@ -119,7 +119,15 @@ class ArticleController extends Controller
      */
     public function destroy($id)
     {
-        $article = Article::find($id);
-        $article->delete();
+    $article = Article::findOrFail($id);
+
+    // détacher les tags liés (relation many-to-many)
+    $article->tags()->detach();
+
+    // si d’autres relations avec contraintes, détache-les aussi ici
+    // ex: commentaires, likes, etc. si en cascade, pas besoin de detach
+
+    $article->delete();
+
     }
 }

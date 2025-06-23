@@ -1,4 +1,4 @@
-export default function SectionTemoin({ temoins }) {
+export default function SectionTemoin({ temoins = [] }) {
     return (
         <div
             className="relative bg-gray-900 bg-cover bg-center px-6 py-10 sm:py-32 lg:px-8" id="temoignages"
