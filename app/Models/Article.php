@@ -9,6 +9,8 @@ class Article extends Model
 {
     /** @use HasFactory<\Database\Factories\ArticleFactory> */
     use HasFactory;
+    protected $fillable = ['titre', 'paragraphe', 'photo', 'date', 'auteur', 'local', 'categorie_id'];
+
 
     public function tags()
     {

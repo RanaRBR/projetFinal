@@ -1,57 +1,54 @@
-import { useState } from 'react'
-import { router } from '@inertiajs/react'
+import { router } from '@inertiajs/react';
+import { useState } from 'react';
 
-export default function CreateTag() {
-  const [name, setName] = useState('')
-  const [loading, setLoading] = useState(false)
+export default function CreateTag({ article_id }) {
+    const [name, setName] = useState('');
+    const [loading, setLoading] = useState(false);
 
-  const soumettre = (e) => {
-    e.preventDefault()
-    if (loading) return
+    const soumettre = (e) => {
+        e.preventDefault();
+        if (loading) return;
 
-    setLoading(true)
-    router.post('/tags', { name }, {
-      onSuccess: () => {
-        router.visit('/dashboard')
-      },
-      onFinish: () => setLoading(false),
-    })
-  }
+        setLoading(true);
+        router.post(
+            '/tags',
+            { name, article_id },
+            {
+                onSuccess: () => router.visit(`/articles/${article_id}`),
+                onFinish: () => setLoading(false),
+            },
+        );
+    };
 
-  return (
-    <div className="relative overflow-hidden px-4 py-12 flex items-center justify-center min-h-screen bg-gray-100 p-4">
-      <div
-        className="absolute inset-0 scale-110 bg-cover bg-center bg-no-repeat blur-none"
-        style={{ backgroundImage: "url('/images/form2.jpg')" }}
-      />
+    return (
+        <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-gray-100 p-4 px-4 py-12">
+            <div
+                className="absolute inset-0 scale-110 bg-cover bg-center bg-no-repeat blur-none"
+                style={{ backgroundImage: "url('/images/form2.jpg')" }}
+            />
 
-      <form
-        onSubmit={soumettre}
-        className="relative z-10 text-black w-full max-w-xl bg-white p-8 rounded-lg shadow-md border border-cyan-500"
-      >
-        <h2 className="text-2xl font-bold text-center text-cyan-600 mb-6">
-          Créer un tag
-        </h2>
+            <form onSubmit={soumettre} className="relative z-10 w-full max-w-xl rounded-lg border border-cyan-500 bg-white p-8 text-black shadow-md">
+                <h2 className="mb-6 text-center text-2xl font-bold text-cyan-600">Créer un tag</h2>
 
-        <div className="mb-4">
-          <label className="block text-gray-700 font-medium mb-2">Nom du tag</label>
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500"
-            required
-          />
+                <div className="mb-4">
+                    <label className="mb-2 block font-medium text-gray-700">Nom du tag</label>
+                    <input
+                        type="text"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        className="w-full rounded-md border px-4 py-2 focus:ring-2 focus:ring-cyan-500 focus:outline-none"
+                        required
+                    />
+                </div>
+
+                <button
+                    type="submit"
+                    disabled={loading}
+                    className="w-full cursor-pointer rounded-md bg-cyan-600 py-2 font-semibold text-white transition hover:bg-cyan-700"
+                >
+                    Enregistrer
+                </button>
+            </form>
         </div>
-
-        <button
-          type="submit"
-          disabled={loading}
-          className="w-full bg-cyan-600 hover:bg-cyan-700 text-white font-semibold py-2 rounded-md transition cursor-pointer"
-        >
-          Enregistrer
-        </button>
-      </form>
-    </div>
-  )
+    );
 }

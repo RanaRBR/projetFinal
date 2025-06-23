@@ -14,7 +14,7 @@ class CategorieSeeder extends Seeder
     {
         DB::table('categories')->insert([
             ['name' => 'local'],
-            ['name' => 'etranger'],
+            ['name' => 'étranger'],
         ]);
     }
 }

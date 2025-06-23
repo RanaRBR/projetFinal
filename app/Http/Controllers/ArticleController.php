@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use App\Http\Requests\StoreArticleRequest;
 use App\Http\Requests\UpdateArticleRequest;
+use App\Models\Categorie;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -13,15 +14,23 @@ class ArticleController extends Controller
     /**
      * Display a listing of the resource.
      */
-   public function index()
+//    public function index()
+//     {
+//     $articles = Article::with('tags')->get();
+
+//     return Inertia::render('articlesListe', [
+//         'articles' => $articles,
+//     ]);
+//     }
+    public function index()
     {
-    $articles = Article::with('tags')->get();
 
     return Inertia::render('articlesListe', [
-        'articles' => $articles,
-    ]);
-    }
+    'articles' => Article::all(),
+    'categories' => Categorie::all(),
+]);
 
+    }
 
 //     public function all()
 // {
@@ -64,9 +73,11 @@ class ArticleController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-    {
-        return Inertia::render('CreateArticle');
-    }
+{
+    return Inertia::render('CreateArticle', [
+        'categories' => Categorie::all(),
+    ]);
+}
 
     /**
      * Store a newly created resource in storage.
@@ -88,7 +99,7 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
-        $article = Article::with('tags', 'commentaires')->find($id);
+        $article = Article::with('tags', 'commentaires')->findOrFail($id);
         return Inertia::render('articleDetails', ['article' => $article]);
     }
 

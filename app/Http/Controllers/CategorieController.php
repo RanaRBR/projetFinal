@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Categorie;
 use App\Http\Requests\StoreCategorieRequest;
 use App\Http\Requests\UpdateCategorieRequest;
+use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class CategorieController extends Controller
 {
@@ -21,15 +23,18 @@ class CategorieController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('CreateCategorie');
+
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreCategorieRequest $request)
+    public function store(Request $request)
     {
-        //
+        $categorie=new Categorie();
+        $categorie->name= $request->name;
+        $categorie->save();
     }
 
     /**
@@ -43,24 +48,28 @@ class CategorieController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Categorie $categorie)
+    public function edit($id)
     {
-        //
+        $categorie= Categorie::find($id);
+        return Inertia::render('EditCategorie', ['categorie'=>$categorie]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateCategorieRequest $request, Categorie $categorie)
+    public function update(Request $request, $id)
     {
-        //
+        $categorie=Categorie::find($id);
+        $categorie->name= $request->name;
+        $categorie->save();
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Categorie $categorie)
+    public function destroy($id)
     {
-        //
+        $categorie=Categorie::find($id);
+        $categorie->delete();
     }
 }

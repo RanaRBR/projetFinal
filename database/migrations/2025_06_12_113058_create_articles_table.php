@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('date');
             $table->string('photo');
             $table->string('auteur');
-            $table->string('local')->default(true);
+            $table->string('local');
             $table->timestamps();
         });
     }

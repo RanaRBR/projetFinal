@@ -13,11 +13,14 @@ class DashboardController extends Controller
 {
     public function index()
     {
+        $articleId = request()->query('article_id');
+
         return Inertia::render('dashboard', [
             'categories' => Categorie::all(),
             'tags' => Tag::all(),
             'roles' => Role::all(),
             'articles' => Article::all(),
+            'articleId' => $articleId,
         ]);
     }
 }

@@ -1,7 +1,10 @@
 import { router } from '@inertiajs/react';
 import { useState } from 'react';
 
-export default function CreateArticle() {
+export default function CreateArticle({categories}) {
+
+    console.log(categories);
+
     const [values, setValues] = useState({
         titre: '',
         paragraphe: '',
@@ -9,6 +12,7 @@ export default function CreateArticle() {
         date: '',
         auteur: '',
         local: 'local',
+        categorie_id: '',
     });
 
     const [loading, setLoading] = useState(false);
@@ -29,8 +33,7 @@ export default function CreateArticle() {
             onSuccess: () => {
                 router.visit('/articles');
             },
-            onError: () => {
-            },
+            onError: () => {},
         });
     };
 
@@ -127,6 +130,26 @@ export default function CreateArticle() {
                     <select id="local" name="local" value={values.local} onChange={modifier} className="w-full rounded-md border px-3 py-3">
                         <option value="local">Près de chez vous</option>
                         <option value="etranger">À l’étranger</option>
+                    </select>
+                </div>
+
+                <div className="mb-4">
+                    <label htmlFor="categorie_id" className="mb-2 block font-medium text-black">
+                        Catégorie
+                    </label>
+                    <select
+                        name="categorie_id"
+                        value={values.categorie_id}
+                        onChange={modifier}
+                        className="w-full rounded-md border px-3 py-3"
+                        required
+                    >
+                        <option value="">Sélectionner une catégorie</option>
+                        {categories.map((categorie) => (
+                            <option key={categorie.id} value={categorie.id}>
+                                {categorie.name}
+                            </option>
+                        ))}
                     </select>
                 </div>
 

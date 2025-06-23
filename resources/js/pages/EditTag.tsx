@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { router } from '@inertiajs/react'
+import { router } from "@inertiajs/react"
+import { useState } from "react"
 
 export default function EditTag({ tag, article_id }) {
   const [name, setName] = useState(tag.name || '')
@@ -21,15 +21,6 @@ export default function EditTag({ tag, article_id }) {
         } else {
           router.visit('/articles')
         }
-      },
-      onFinish: () => setLoading(false),
-    })
-  }
-
-  const supprimer = () => {
-    router.delete(`/tags/${tag.id}`, {
-      onSuccess: () => {
-        router.visit('/tags')
       },
       onFinish: () => setLoading(false),
     })
@@ -57,24 +48,13 @@ export default function EditTag({ tag, article_id }) {
           required
         />
 
-        <div className="flex gap-4">
-          <button
-            type="submit"
-            disabled={loading}
-            className="flex-1 bg-cyan-600 text-white py-2 rounded hover:bg-cyan-700 transition cursor-pointer"
-          >
-            Mettre à jour
-          </button>
-
-          <button
-            type="button"
-            onClick={supprimer}
-            disabled={loading}
-            className="flex-1 bg-red-600 text-white py-2 rounded hover:bg-red-700 transition cursor-pointer"
-          >
-            Supprimer
-          </button>
-        </div>
+        <button
+          type="submit"
+          disabled={loading}
+          className="w-full bg-cyan-600 text-white py-2 rounded hover:bg-cyan-700 transition cursor-pointer"
+        >
+          Mettre à jour
+        </button>
       </form>
     </div>
   )

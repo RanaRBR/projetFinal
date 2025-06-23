@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Tag;
 use App\Http\Requests\StoreTagRequest;
 use App\Http\Requests\UpdateTagRequest;
+use App\Models\Article;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -21,20 +22,34 @@ class TagController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+   public function create(Request $request)
     {
-        return Inertia::render('CreateTag');
+    return Inertia::render('CreateTag', [
+        'article_id' => $request->query('article_id'), // récupère article_id dans l'URL
+    ]);
     }
+
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        $tag = new Tag();
-        $tag->name = $request->name;
-        $tag->save();
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'article_id' => 'required|exists:articles,id',
+        ]);
+
+        // créer le tag
+        $tag = Tag::create(['name' => $request->name]);
+
+        $article = Article::find($request->article_id);
+        $article->tags()->attach($tag->id);
+
+        return redirect()->route('articles.show', $request->article_id);
     }
+
+
 
     /**
      * Display the specified resource.
@@ -49,9 +64,9 @@ class TagController extends Controller
      */
     public function edit($id)
     {
-   $tag = Tag::find($id);
-    $article_id = $tag->articles()->first()->id ?? null; 
-    return Inertia::render('EditTag', ['tag' => $tag, 'article_id' => $article_id]);
+        $tag = Tag::find($id);
+        $article_id = $tag->articles()->first()->id ?? null;
+        return Inertia::render('EditTag', ['tag' => $tag, 'article_id' => $article_id]);
     }
 
     /**
@@ -59,7 +74,7 @@ class TagController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $tag = new Tag();
+        $tag = Tag::find($id);
         $tag->name = $request->name;
         $tag->save();
     }

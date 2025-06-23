@@ -41,7 +41,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/edit/about/{id}', [AboutController::class, 'edit']);
     Route::put('/update/about/{id}', [AboutController::class, 'update']);
 
-    Route::get('/articles/{id}', [ArticleController::class, 'show']);
+    Route::get('/articles/{id}', [ArticleController::class, 'show'])->name('articles.show');
     Route::get('/create/article', [ArticleController::class, 'create']);
     Route::get('/edit/article/{id}', [ArticleController::class, 'edit']);
     Route::put('/update/article/{id}', [ArticleController::class, 'update']);
@@ -54,11 +54,18 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/edit/savoir/{id}', [SavoirController::class, 'edit']);
     Route::put('/update/savoir/{id}', [SavoirController::class, 'update']);
 
+    Route::post('/post/contact', [ContactController::class, 'store']);
     Route::get('/create/contact', [ContactController::class, 'create']);
     Route::get('/edit/contact/{id}', [ContactController::class, 'edit']);
     Route::put('/update/contact/{id}', [ContactController::class, 'update']);
     Route::delete('/delete/contact/{id}', [ContactController::class, 'destroy']);
-    Route::post('/post/contact', [ContactController::class, 'store']);
+
+    Route::post('/categorie', [CategorieController::class, 'store']);
+    Route::get('/create/categorie', [CategorieController::class, 'create']);
+    Route::get('/edit/categorie/{id}', [CategorieController::class, 'edit']);
+    Route::put('/update/categorie/{id}', [CategorieController::class, 'update']);
+    Route::delete('/delete/categorie/{id}', [CategorieController::class, 'destroy']);
+
 
 
     //mail
