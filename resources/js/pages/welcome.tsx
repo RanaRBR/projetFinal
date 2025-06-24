@@ -13,6 +13,7 @@ function Welcome({ abouts, articles, temoins, savoirs, contacts }) {
 
   return (
     <>
+
       <NavBarre auth_user_id={auth_user_id} />
 
       <SectionAbout abouts={abouts} />

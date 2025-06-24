@@ -71,13 +71,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/edit/role/{id}', [RoleController::class, 'edit']);
     Route::put('/update/role/{id}', [RoleController::class, 'update']);
     Route::delete('/delete/role/{id}', [RoleController::class, 'destroy']);
+    Route::resource('roles', RoleController::class)->except(['show']);
+
 
 
 
     //mail
 
     Route::post('/send-email', [ContactController::class, 'sendContactForm']);
-
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 

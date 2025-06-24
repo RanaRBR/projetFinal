@@ -1,5 +1,4 @@
 import { Link } from '@inertiajs/react';
-import { FaSheetPlastic } from 'react-icons/fa6';
 import { FiHome, FiInfo } from 'react-icons/fi';
 
 export default function Footer({ auth_user_id }) {
@@ -32,11 +31,10 @@ export default function Footer({ auth_user_id }) {
                             </div>
                         </Link>
                     </div>
-
                     <div className="flex space-x-8">
-                        <Link href="#contact" className="group relative flex items-center space-x-2 text-white transition hover:text-cyan-600">
-                            <FiInfo size={18} />
-                            <span className="text-sm font-semibold tracking-wider uppercase">Contact</span>
+                        <Link href="/#contact" className="group relative flex items-center space-x-2 text-white transition hover:text-cyan-600">
+                            <FiHome size={18} />
+                            <span className="text-sm font-semibold tracking-wider uppercase">contact</span>
                             <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-cyan-600 transition-all duration-300 group-hover:w-full" />
                         </Link>
 
@@ -44,8 +42,8 @@ export default function Footer({ auth_user_id }) {
                             href={route('politique.confidentialite')}
                             className="group relative flex items-center space-x-2 text-white transition hover:text-cyan-600"
                         >
-                            <FaSheetPlastic size={18} />
-                            <span className="text-sm font-semibold tracking-wider uppercase">Légal</span>
+                            <FiInfo size={18} />
+                            <span className="text-sm font-semibold tracking-wider uppercase">légal</span>
                             <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-cyan-600 transition-all duration-300 group-hover:w-full" />
                         </Link>
                     </div>

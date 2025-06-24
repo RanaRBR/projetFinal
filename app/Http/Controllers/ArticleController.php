@@ -132,12 +132,7 @@ class ArticleController extends Controller
     {
     $article = Article::findOrFail($id);
 
-    // détacher les tags liés (relation many-to-many)
     $article->tags()->detach();
-
-    // si d’autres relations avec contraintes, détache-les aussi ici
-    // ex: commentaires, likes, etc. si en cascade, pas besoin de detach
-
     $article->delete();
 
     }

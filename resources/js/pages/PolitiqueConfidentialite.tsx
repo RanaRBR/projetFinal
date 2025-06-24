@@ -1,10 +1,11 @@
-import { Head } from '@inertiajs/react'
+import NavBarre from '@/components/navBarre/NavBarre'
 
-export default function PolitiqueConfidentialite() {
+export default function PolitiqueConfidentialite({auth_user_id}) {
   return (
     <>
-      <Head title="Politique de confidentialité" />
-      <div className="min-h-screen bg-gray-100 py-16 px-4">
+    <NavBarre auth_user_id={auth_user_id} />
+    
+      <div className="min-h-screen bg-gray-100 py-16 px-4 mt-40">
         <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl p-10 text-gray-800">
           <h1 className="text-4xl font-bold text-gray-700 mb-6 border-b-2 pb-2 border-cyan-300">
             Politique de confidentialité

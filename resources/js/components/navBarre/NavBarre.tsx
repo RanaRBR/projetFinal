@@ -23,7 +23,7 @@ function LogoutButton() {
 
 export default function NavBarre({ auth_user_id })  {
     return (
-        <nav className="max-w-8xl fixed top-4 left-1/2 z-50 mt-6 w-[95%] -translate-x-1/2 rounded-full border border-cyan-400/40 bg-black/30 px-8 py-3 shadow-lg backdrop-blur-md">
+        <nav className="max-w-8xl fixed top-4 left-1/2 z-50 mt-6 w-[95%] -translate-x-1/2 rounded-full border border-sky-400/40 bg-black/30 px-8 py-3 shadow-lg backdrop-blur-md">
             <div className="flex items-center justify-between">
                 <Link href="/" className="flex flex-shrink-0 items-center">
                     <div className="h-18 w-18 overflow-hidden rounded-lg">
