@@ -24,7 +24,7 @@ export default function SectionContact({ contacts = [] }) {
         <section className="body-font relative overflow-hidden bg-white text-gray-800 ">
             <div id="contact" className="m-8 mx-auto mt-16 max-w-7xl rounded-lg bg-white p-10  sm:p-16">
                 <h2
-                    className="mb-6 text-5xl font-medium text-cyan-600 uppercase text-center p-5"
+                    className="mb-6 text-5xl font-medium text-orange-400 uppercase text-center p-5"
                     style={{ fontFamily: "'Merriweather', sans-serif", fontStyle: 'normal', fontWeight: 600 }}
                 >
                     Contact

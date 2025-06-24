@@ -29,7 +29,7 @@ function SectionSavoir({ savoirs }) {
       </div>
 
       <section className="max-w-xl text-center md:text-left mt-20 me-15">
-        <h2 className="mb-6 text-4xl md:text-5xl font-medium text-cyan-600 uppercase"
+        <h2 className="mb-6 text-4xl md:text-5xl font-medium text-orange-400 uppercase"
          style={{
                     fontFamily: "'Merriweather', sans-serif",
                     fontStyle: 'normal',

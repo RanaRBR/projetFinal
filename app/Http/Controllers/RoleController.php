@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Role;
 use App\Http\Requests\StoreRoleRequest;
 use App\Http\Requests\UpdateRoleRequest;
+use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class RoleController extends Controller
 {
@@ -27,9 +29,14 @@ class RoleController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreRoleRequest $request)
+    public function store(Request $request)
     {
-        //
+        $role=new Role();
+        $role->nom= $request->nom;
+        $role->email= $request->email;
+        $role->password= $request->password;
+        $role->save();
+
     }
 
     /**
@@ -43,24 +50,31 @@ class RoleController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Role $role)
+    public function edit($id)
     {
-        //
+        
+        $role= Role::find($id);
+        return Inertia::render('EditRole', ['role'=>$role]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateRoleRequest $request, Role $role)
+    public function update($id, Request $request)
     {
-        //
+        $role=Role::find($id);
+        $role->nom= $request->nom;
+        $role->email= $request->email;
+        $role->password= $request->password;        
+        $role->save();
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Role $role)
+    public function destroy($id)
     {
-        //
+        $role=Role::find($id);
+        $role->delete();
     }
 }

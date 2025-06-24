@@ -1,9 +1,10 @@
+import Footer from '@/components/footer/Footer';
 import NavBarre from '@/components/navBarre/NavBarre';
 import { Link } from '@inertiajs/react';
 import { useState } from 'react';
 import { ImSearch } from "react-icons/im";
 
-export default function ArticlesListe({ articles }) {
+export default function ArticlesListe({ articles, auth_user_id }) {
     const [filtre, setFiltre] = useState('tous');
     const [search, setSearch] = useState('');
 
@@ -23,11 +24,12 @@ export default function ArticlesListe({ articles }) {
     };
 
     return (
+        <> 
         <section className="mt-40 min-h-screen bg-gray-100 px-4 py-20 font-serif">
-            <NavBarre />
+        <NavBarre auth_user_id={auth_user_id} />
             <div className="mx-auto max-w-7xl">
                 <h2
-                    className="mb-10 text-center text-5xl font-extrabold text-cyan-700 uppercase tracking-wide leading-tight"
+                    className="mb-10 text-center text-5xl font-extrabold text-orange-400 uppercase tracking-wide leading-tight"
                     style={{ fontFamily: "'Merriweather', sans-serif", fontStyle: 'normal', fontWeight: 600 }}
                 >
                     Zoom sur l’actualité
@@ -120,7 +122,15 @@ export default function ArticlesListe({ articles }) {
                     ))}
                 </div>
             </div>
+            
         </section>
+        
+    <Footer auth_user_id={auth_user_id} />
+
+    </>
+
+
+        
     );
 }
 

@@ -22,7 +22,7 @@ function SectionAbout({ abouts = [] }) {
 
               <div className="order-2 w-full lg:order-2 lg:w-1/2">
                 <h2
-                  className="mb-6 text-5xl font-medium text-cyan-600 uppercase"
+                  className="mb-6 text-5xl font-medium text-orange-400 uppercase"
                   style={{
                     fontFamily: "'Merriweather', sans-serif",
                     fontStyle: 'normal',

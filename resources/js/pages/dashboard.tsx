@@ -75,7 +75,7 @@ export default function Dashboard({ tags, categories, roles, articles }) {
                                         {titre === 'articles' && (
                                             <Link
                                                 href={`/tags/create?article_id=${item.id}`}
-                                                className="text-green-400 transition hover:text-green-600"
+                                                className="text-emerald-600 transition hover:text-emerald-800"
                                             >
                                                 ajouter un tag
                                             </Link>

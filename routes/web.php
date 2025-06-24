@@ -7,6 +7,7 @@ use App\Http\Controllers\CommentaireController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LikeController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SavoirController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\TemoinController;
@@ -16,27 +17,23 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/', [AboutController::class, 'index'])->name('home');
-// Route::get('/', [ArticleController::class, 'index'])->name('home');
 
 Route::get('/article/{id}', [ArticleController::class, 'show']);
 Route::get('/articles', [ArticleController::class, 'all']);
 
 
+Route::get('/politique-confidentialite', function () {
+    return Inertia::render('PolitiqueConfidentialite');
+})->name('politique.confidentialite');
+
+
 Route::middleware(['auth', 'verified'])->group(function () {
-    // Route::get('dashboard', function () {
-    //     return Inertia::render('dashboard');
-    // })->name('dashboard');
-
-    Route::post('/likes', [LikeController::class, 'store']);
-    Route::delete('/likes/{article}', [LikeController::class, 'destroy']);
-
 
     Route::post('/articles/{article}/commentaires', [CommentaireController::class, 'store']);
     Route::get('/commentaire/edit/{id}',[CommentaireController::class,'edit']);
     Route::put('/commentaire/update/{id}',[CommentaireController::class,'update']);
     Route::delete('/commentaire/delete/{id}',[CommentaireController::class,'destroy']);
 
-    
     Route::get('/create/about', [AboutController::class, 'create']);
     Route::get('/edit/about/{id}', [AboutController::class, 'edit']);
     Route::put('/update/about/{id}', [AboutController::class, 'update']);
@@ -65,6 +62,15 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/edit/categorie/{id}', [CategorieController::class, 'edit']);
     Route::put('/update/categorie/{id}', [CategorieController::class, 'update']);
     Route::delete('/delete/categorie/{id}', [CategorieController::class, 'destroy']);
+    
+    Route::post('/likes', [LikeController::class, 'store']);
+    Route::delete('/likes/{article}', [LikeController::class, 'destroy']);
+
+    Route::post('/role', [RoleController::class, 'store']);
+    Route::get('/create/role', [RoleController::class, 'create']);
+    Route::get('/edit/role/{id}', [RoleController::class, 'edit']);
+    Route::put('/update/role/{id}', [RoleController::class, 'update']);
+    Route::delete('/delete/role/{id}', [RoleController::class, 'destroy']);
 
 
 
@@ -76,9 +82,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::resource('articles', ArticleController::class)->except(['show']);
-
     Route::resource('categories', CategorieController::class)->except(['show']);
-
     Route::resource('tags', TagController::class)->except(['show']);
     Route::get('/tags', [TagController::class, 'index']);
     Route::post('/tags', [TagController::class, 'store']);

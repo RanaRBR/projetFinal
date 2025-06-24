@@ -5,6 +5,7 @@ import SectionSavoir from '@/components/sectionSavoir/SectionSavoir';
 import SectionTemoin from '@/components/sectionTemoin/SectionTemoin';
 import SectionArticle from '@/components/sectionArticle/SectionArticle'
 import { usePage } from '@inertiajs/react'
+import Footer from '@/components/footer/Footer';
 
 function Welcome({ abouts, articles, temoins, savoirs, contacts }) {
   const { auth } = usePage().props;
@@ -19,6 +20,9 @@ function Welcome({ abouts, articles, temoins, savoirs, contacts }) {
       <SectionSavoir savoirs={savoirs} />
       <SectionTemoin temoins={temoins} />
       <SectionContact contacts={contacts} />
+
+      <Footer auth_user_id={auth_user_id} />
+
     </>
   )
 }
