@@ -129,19 +129,19 @@ export default function EditArticle({ article }) {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-cyan-600 hover:bg-cyan-700 text-black font-semibold py-3 rounded-md transition cursor-pointer"
+            className="w-full bg-cyan-600 hover:bg-cyan-700 text-white font-semibold py-3 rounded-md transition cursor-pointer"
           >
             Mettre à jour
           </button>
 
-          <button
+          {/* <button
             type="button"
             onClick={supprimer}
             disabled={loading}
-            className="w-full bg-red-600 hover:bg-red-700 text-black font-semibold py-3 rounded-md transition cursor-pointer"
+            className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-3 rounded-md transition cursor-pointer"
           >
             Supprimer
-          </button>
+          </button> */}
         </div>
       </form>
     </div>

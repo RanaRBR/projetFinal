@@ -109,9 +109,11 @@ export default function NavBarre({ auth_user_id }) {
             {/* pc */}
             <nav className="max-w-8xl fixed top-8 left-1/2 z-40 hidden h-25 w-[95%] -translate-x-1/2 rounded-full border border-cyan-600 bg-black/80 px-8 py-3 shadow-lg lg:flex">
                 <div className="flex w-full items-center justify-between">
+                   <Link href='/'>
                     <div className="h-18 w-18 overflow-hidden rounded-lg">
                         <img src="/images/logo3.png" alt="Logo" className="h-full w-full object-cover cursor-pointer" />
                     </div>
+                   </Link>
 
                     <div className="flex items-center space-x-8">
                         <Link href="/" className="group relative flex items-center space-x-2 text-cyan-600 transition hover:text-cyan-600">

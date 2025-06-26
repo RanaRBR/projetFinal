@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('roles', function (Blueprint $table) {
             $table->id();
-            $table->string('nom');
-            $table->string('email');
-            $table->string('password');
-            $table->foreignId('role_id')->constrained();
+            $table->string('name');
+            $table->string('email')->nullable();
+            $table->string('password')->nullable();
+            // $table->foreignId('role_id')->constrained();
             $table->timestamps();
         });
     }

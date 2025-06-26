@@ -74,8 +74,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('roles', RoleController::class)->except(['show']);
 
 
-
-
     //mail
 
     Route::post('/send-email', [ContactController::class, 'sendContactForm']);

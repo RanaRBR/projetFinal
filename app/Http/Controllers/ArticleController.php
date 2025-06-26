@@ -129,11 +129,18 @@ class ArticleController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy($id)
-    {
+{
     $article = Article::findOrFail($id);
 
+    $article->likes()->delete();
+
+    $article->commentaires()->delete();
+
     $article->tags()->detach();
+
     $article->delete();
 
-    }
+    return redirect()->route('dashboard')->with('success', 'Article supprimé avec succès.');
+}
+
 }

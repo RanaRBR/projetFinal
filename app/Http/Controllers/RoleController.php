@@ -32,7 +32,7 @@ class RoleController extends Controller
     public function store(Request $request)
     {
         $role=new Role();
-        $role->nom= $request->nom;
+        $role->name= $request->name;
         $role->email= $request->email;
         $role->password= $request->password;
         $role->save();
@@ -63,7 +63,7 @@ class RoleController extends Controller
     public function update($id, Request $request)
     {
         $role=Role::find($id);
-        $role->nom= $request->nom;
+        $role->name= $request->name;
         $role->email= $request->email;
         $role->password= $request->password;        
         $role->save();
