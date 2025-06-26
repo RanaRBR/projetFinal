@@ -12,13 +12,13 @@ function LogoutButton() {
     return (
         <button
             onClick={deconnexion}
-            className="group relative flex items-center space-x-2 text-cyan-600 transition hover:text-orange-400"
+            className="group relative flex items-center space-x-2 text-cyan-600 transition hover:text-orange-400 md:text-xl md:font-semibold "
             aria-label="déconnexion"
             type="button"
         >
             <FaUserSlash size={18} />
             <span>Déconnexion</span>
-            <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-cyan-600 transition-all duration-300 group-hover:w-full" />
+            <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-cyan-600 transition-all duration-300 group-hover:w-full " />
         </button>
     );
 }
@@ -29,10 +29,10 @@ export default function NavBarre({ auth_user_id }) {
     return (
         <>
             {/*  tel/tablette */}
-            <div className="fixed top-0 left-0 z-50 flex h-[180px] md:h-[130px] w-full flex-col bg-black/50 px-5 backdrop-blur-md md:px-8 lg:hidden">
+            <div className="fixed top-0 left-0 z-50 flex h-[180px] md:h-[180px] w-full flex-col bg-black/50 px-5 backdrop-blur-md md:px-8 lg:hidden ">
                 <div className="flex h-16 items-center justify-between">
                     <Link href="/" className="mt-8 ml-4 block h-14 w-14 overflow-hidden rounded-lg md:mt-20 md:ml-8 md:h-20 md:w-20">
-                        <img src="/images/logo3.png" alt="Logo" className="h-full w-full object-cover" />
+                        <img src="/images/logo3.png" alt="Logo" className="h-full w-full object-cover cursor-pointer" />
                     </Link>
 
                     <button
@@ -47,11 +47,9 @@ export default function NavBarre({ auth_user_id }) {
                 </div>
 
                 {menuOpen && (
-                    <div
-                        className="mx-auto grid w-[90vw] max-w-lg grid-cols-3 grid-rows-2 gap-x-6 gap-y-4 py-4 font-bold text-white m-x-auto"
-                        style={{ maxHeight: 'calc(100vh - 4rem)', overflowY: 'auto' }}
-                    >
-                        <Link href="/" onClick={() => setMenuOpen(false)} className="flex items-center justify-center space-x-2 hover:text-cyan-600">
+                   <div className="mx-auto grid w-[90vw] max-w-lg grid-cols-3 grid-rows-2 gap-x-6 gap-y-6 py-4 md:gap-x-4 md:gap-y-4 font-bold text-white md:ms-30 mt-3">
+
+                        <Link href="/" onClick={() => setMenuOpen(false)} className="flex items-center justify-center space-x-2 hover:text-cyan-600 md:text-xl md:font-semibold  ">
                             <FiHome className="text-cyan-600" />
                             <span>Accueil</span>
                         </Link>
@@ -59,7 +57,7 @@ export default function NavBarre({ auth_user_id }) {
                         <Link
                             href="#about"
                             onClick={() => setMenuOpen(false)}
-                            className="flex items-center justify-center space-x-2 hover:text-cyan-600"
+                            className="flex items-center justify-center space-x-2 hover:text-cyan-600 md:text-xl md:font-semibold"
                         >
                             <FiInfo className="text-cyan-600" />
                             <span>À propos</span>
@@ -68,7 +66,7 @@ export default function NavBarre({ auth_user_id }) {
                         <Link
                             href="/#media"
                             onClick={() => setMenuOpen(false)}
-                            className="flex items-center justify-center space-x-2 hover:text-cyan-600"
+                            className="flex items-center justify-center space-x-2 hover:text-cyan-600 md:text-xl md:font-semibold"
                         >
                             <FiCamera className="text-cyan-600" />
                             <span>Média</span>
@@ -77,7 +75,7 @@ export default function NavBarre({ auth_user_id }) {
                         <Link
                             href="/#myTemoignages"
                             onClick={() => setMenuOpen(false)}
-                            className="flex items-center justify-center space-x-2 hover:text-cyan-600"
+                            className="flex items-center justify-center space-x-2 hover:text-cyan-600 md:text-xl md:font-semibold"
                         >
                             <FiMessageSquare className="text-cyan-600" />
                             <span>Témoignages</span>
@@ -86,7 +84,7 @@ export default function NavBarre({ auth_user_id }) {
                         <Link
                             href="/#contact"
                             onClick={() => setMenuOpen(false)}
-                            className="flex items-center justify-center space-x-2 hover:text-cyan-600"
+                            className="flex items-center justify-center space-x-2 hover:text-cyan-600 md:text-xl md:font-semibold"
                         >
                             <FiMail className="text-cyan-600" />
                             <span>Contact</span>
@@ -98,7 +96,7 @@ export default function NavBarre({ auth_user_id }) {
                             <Link
                                 href="/login"
                                 onClick={() => setMenuOpen(false)}
-                                className="flex items-center justify-center space-x-2 hover:text-cyan-600"
+                                className="flex items-center justify-center space-x-2 hover:text-cyan-600 md:text-xl md:font-semibold"
                             >
                                 <FaUser className="text-cyan-600" />
                                 <span>Connexion</span>
@@ -109,10 +107,10 @@ export default function NavBarre({ auth_user_id }) {
             </div>
 
             {/* pc */}
-            <nav className="max-w-8xl fixed top-8 left-1/2 z-40 hidden h-25 w-[95%] -translate-x-1/2 rounded-full border border-cyan-600 bg-black/50 px-8 py-3 shadow-lg lg:flex">
+            <nav className="max-w-8xl fixed top-8 left-1/2 z-40 hidden h-25 w-[95%] -translate-x-1/2 rounded-full border border-cyan-600 bg-black/80 px-8 py-3 shadow-lg lg:flex">
                 <div className="flex w-full items-center justify-between">
                     <div className="h-18 w-18 overflow-hidden rounded-lg">
-                        <img src="/images/logo3.png" alt="Logo" className="h-full w-full object-cover" />
+                        <img src="/images/logo3.png" alt="Logo" className="h-full w-full object-cover cursor-pointer" />
                     </div>
 
                     <div className="flex items-center space-x-8">
