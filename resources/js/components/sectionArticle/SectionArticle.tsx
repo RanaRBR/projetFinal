@@ -22,7 +22,7 @@ export default function Articles({ articles }) {
             <div className="relative mx-auto max-w-4xl z-10">
                 <div className="mb-12 text-center">
                     <h2
-                        className="mb-4 text-5xl font-medium text-cyan-600 uppercase"
+                        className="mb-4 text-4xl text-center md:text-4xl md:text-center lg:text-center lg:text-5xl font-medium text-cyan-600 uppercase"
                         style={{ fontFamily: "'Merriweather', sans-serif" , fontStyle: 'normal', fontWeight: 600 }}
                     >
                         Vu dans les médias

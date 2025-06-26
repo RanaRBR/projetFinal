@@ -22,7 +22,7 @@ function SectionAbout({ abouts = [] }) {
 
               <div className="order-2 w-full lg:order-2 lg:w-1/2">
                 <h2
-                  className="mb-6 text-5xl font-medium text-orange-400 uppercase"
+                  className="mb-6 text-4xl text-center md:text-4xl md:text-center lg:text-left lg:text-5xl font-medium text-orange-400 uppercase"
                   style={{
                     fontFamily: "'Merriweather', sans-serif",
                     fontStyle: 'normal',
@@ -32,7 +32,7 @@ function SectionAbout({ abouts = [] }) {
                   {item.titre}
                 </h2>
                 <p
-                  className="mb-8 text-xl"
+                  className="mb-8 text-lg text-center md:text-center md:text-lg lg:text-left lg:text-xl"
                   style={{
                     fontFamily: "'Raleway', serif",
                     fontStyle: 'normal',

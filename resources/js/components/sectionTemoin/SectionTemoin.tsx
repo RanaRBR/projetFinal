@@ -10,17 +10,17 @@ export default function SectionTemoin({ temoins = [] }) {
             <div className="relative z-10" id="myTemoignages">
                 <div className="mx-auto mb-20 max-w-4xl text-center">
                     <h2
-                        className="mb-6 text-5xl font-medium text-cyan-600 uppercase"
+                        className="mb-6 text-4xl text-center md:text-4xl md:text-center lg:text-center lg:text-5xl font-medium text-cyan-600 uppercase"
                         style={{ fontFamily: "'Merriweather', sans-serif" , fontStyle: 'normal', fontWeight: 600 }}
                     >
                         Ils ont tenté l’aventure
                     </h2>
-                    <p className="text-xl font-extrabold text-black" style={{ fontFamily: "'Merriweather', serif" }}>
+                    <p className="lg:text-xl lg:font-extrabold lg:text-black md:text-lg md:font-semibold text-black font-semibold" style={{ fontFamily: "'Merriweather', serif" }}>
                         Découvrez les témoignages inspirants de développeurs partis à l’étranger.
                     </p>
                 </div>
 
-                <div className="mx-auto mt-12 grid max-w-5xl grid-cols-1 gap-20 sm:grid-cols-2 lg:grid-cols-2">
+                <div className="mx-auto mt-12 grid max-w-5xl md:grid-cols-1 gap-20 grid-cols-1 lg:grid-cols-2">
                     {temoins.map((temoin) => (
                         <div
                             key={temoin.id}

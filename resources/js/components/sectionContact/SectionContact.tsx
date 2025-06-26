@@ -24,14 +24,14 @@ export default function SectionContact({ contacts = [] }) {
         <section className="body-font relative overflow-hidden bg-white text-gray-800 ">
             <div id="contact" className="m-8 mx-auto mt-16 max-w-7xl rounded-lg bg-white p-10  sm:p-16">
                 <h2
-                    className="mb-6 text-5xl font-medium text-orange-400 uppercase text-center p-5"
+                    className="mb-6 text-4xl text-center md:text-4xl md:text-center lg:text-center lg:text-5xl  font-medium text-orange-400 uppercase  p-5"
                     style={{ fontFamily: "'Merriweather', sans-serif", fontStyle: 'normal', fontWeight: 600 }}
                 >
                     Contact
                 </h2>
 
-                <div className="container mx-auto flex flex-wrap gap-8 sm:flex-nowrap">
-                    <div className="relative flex flex-col overflow-hidden rounded-lg bg-gray-100 p-8 shadow-lg sm:mr-8 md:w-1/2">
+                <div className="container mx-auto md:mx-auto flex flex-wrap gap-8 md:flex-wrap lg:flex-nowrap">
+                    <div className="relative flex flex-col overflow-hidden rounded-lg bg-gray-100 p-8 shadow-lg sm:mr-8 lg:w-1/2  md:mx-auto md:w-[100%]">
                         <iframe
                             width="100%"
                             height="300"
@@ -74,7 +74,7 @@ export default function SectionContact({ contacts = [] }) {
 
                     <form
                         onSubmit={soumettre}
-                        className="w-full max-w-lg rounded-lg border border-gray-300 bg-white p-10 shadow-lg md:w-1/2"
+                        className="w-full lg:max-w-lg rounded-lg border border-gray-300 bg-white p-10 shadow-lg md:mx-auto md:w-[100%]"
                     >
                         <h2 className="mb-4 text-center text-2xl font-semibold text-cyan-600">Envoyer un message</h2>
                         <p className="mb-8 text-center text-sm text-gray-600">Remplir ce formulaire pour nous contacter</p>
